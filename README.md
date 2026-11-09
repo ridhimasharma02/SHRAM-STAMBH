@@ -450,4 +450,6 @@ Upload everything except the `docs/` and `.github/` folders to any static web ho
 
 *This site gives general information, not legal advice. For your own case, call free legal aid on **15100** or visit your district labour office.*
 
+What changed in each version is in [CHANGELOG.md](CHANGELOG.md). To report a wrong fact, a translation problem or a bug, [open an issue](https://github.com/ridhimasharma02/shram-stambh/issues/new/choose).
+
 No licence has been chosen yet, so by default all rights are reserved by the author.
