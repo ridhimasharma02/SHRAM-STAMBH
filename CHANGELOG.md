@@ -2,7 +2,7 @@
 
 What changed in each version of SHRAM STAMBH. Downloads are on the [releases page](https://github.com/ridhimasharma02/shram-stambh/releases).
 
-## Not released yet
+## 1.2 — 9 November 2026
 
 ### Added
 - **Send the diary on WhatsApp.** A button under the diary totals opens WhatsApp with the month's record in Hindi and English: employer, daily wage, each date worked, every payment and the amount still owed. It works as written proof for an employer, union helper or labour officer.
