@@ -1,6 +1,6 @@
 # Changelog
 
-What changed in each version of SHRAM STAMBH. Downloads are on the [releases page](https://github.com/ridhimasharma02/shram-stambh/releases).
+What changed in each version of SHRAM STAMBH. Downloads are on the [releases page](https://github.com/ridhimasharma02/SHRAM-STAMBH/releases).
 
 ## 1.2 — 9 November 2026
 
