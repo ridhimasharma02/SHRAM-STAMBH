@@ -184,7 +184,7 @@ header.site .wrap { padding-top: 14px; }
 .site-name small { font-size: 0.9rem; font-weight: 500; color: #c3c0ba; margin-left: 6px; letter-spacing: 0; }
 
 /* the logo: an ochre tile with the word श्रम */
-.site-name svg.logo-mark { width: 42px; height: 42px; flex: none; color: #eeece7; }
+.site-name svg.logo-mark { width: 42px; height: 42px; flex: none; color: var(--ochre); }
 
 .head-tools { display: flex; align-items: center; gap: 14px; flex: none; }
 
@@ -1094,7 +1094,7 @@ footer.site p { margin-bottom: 6px; color: #3f4245; }
 footer.site .muted { color: #3f4245; }
 .foot-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 12px 56px; }
 .foot-name { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.06em; font-size: 1.05rem; color: var(--ink); margin-bottom: 8px; }
-.foot-name svg.logo-mark { width: 30px; height: 30px; color: var(--ink); }
+.foot-name svg.logo-mark { width: 30px; height: 30px; color: #7d5a1c; }   /* deeper ochre: plain ochre is too faint on the light footer */
 .foot-name small { letter-spacing: 0; font-weight: 500; margin-left: 6px; }
 footer.site ul.foot-links { list-style: none; padding: 0; margin: 0; display: block; flex-wrap: wrap; gap: 4px 28px; columns: 2; }
 footer.site ul.foot-links li { break-inside: avoid; margin-bottom: 8px; }
