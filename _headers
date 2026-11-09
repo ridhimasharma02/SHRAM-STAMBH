@@ -1,0 +1,13 @@
+# Read automatically by Netlify and Cloudflare Pages; other hosts ignore this file.
+
+# every file: basic safety headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: microphone=(self), camera=(), geolocation=()
+
+# voice clips are named after their exact words, so a clip never changes:
+# phones can keep them for a year instead of downloading them again
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
