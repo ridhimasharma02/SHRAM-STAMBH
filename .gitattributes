@@ -1,0 +1,11 @@
+# binary files: never change line endings or show text diffs
+*.m4a binary
+*.jpg binary
+*.png binary
+
+# text files use Unix line endings
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.md   text eol=lf
+*.svg  text eol=lf
