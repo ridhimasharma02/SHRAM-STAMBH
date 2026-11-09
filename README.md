@@ -118,13 +118,13 @@ Opened this way, everything works except asking questions by microphone. Browser
 
 Use either of these. Neither adds anything to the project.
 
-**On a Mac, with nothing to install.** macOS comes with Ruby, which has a one-line web server. Open Terminal in the project folder and run:
+**On a Mac, with nothing to install.** macOS comes with Ruby, which has a small web server built in. Open Terminal in the project folder and run:
 
 ```bash
-ruby -run -e httpd . -p 8123
+ruby -rwebrick -e 'm = WEBrick::HTTPUtils::DefaultMimeTypes.merge("m4a" => "audio/mp4"); s = WEBrick::HTTPServer.new(Port: 8123, DocumentRoot: ".", MimeTypes: m); trap("INT") { s.shutdown }; s.start'
 ```
 
-Then open **http://localhost:8123** in Chrome. To stop it, press `Ctrl + C` in Terminal.
+Then open **http://localhost:8123** in Chrome or Safari. To stop it, press `Ctrl + C` in Terminal. (The `m4a` part tells browsers the voice clips are audio. Without it Ruby sends them as unknown files, which Safari can refuse to play.)
 
 **On any computer, with VS Code.** Install the free "Live Server" extension, open the project folder, right-click `index.html` and choose **Open with Live Server**. It opens at **http://localhost:5500**.
 
