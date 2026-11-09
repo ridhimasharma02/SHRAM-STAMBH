@@ -138,6 +138,19 @@ Edit the files directly. There is no build step.
 - **New or changed spoken sentences** have no recording yet, because each clip matches its exact words. The phone's own voice reads them instead until they are recorded.
 - **After changing `style.css` or a `.js` file**, raise the `?v=36` number on the links in every page, so phones load the new file instead of an old copy.
 
+### Checking after a change
+
+1. Log out, then open any page. It should go straight to the login page.
+2. Make an account and log in. You should come back to the page you opened.
+3. Open every page from the menu. Nothing should be cut off, and there should be no sideways scrolling on a phone-sized window.
+4. Press a few speaker buttons in two or three languages. Each should speak once, not twice.
+5. Open the browser console (`F12`). There should be no red errors.
+6. To check that every spoken line still has a recording, run this in the console on each page. It should print `0`:
+
+   ```js
+   ssDebug.collect().filter(p => !ssDebug.audioUrl(p)).length
+   ```
+
 ## Putting it online
 
 Upload everything except the `docs/` folder to any static web host, such as GitHub Pages, Netlify or Cloudflare Pages.
