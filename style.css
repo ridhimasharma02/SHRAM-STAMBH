@@ -183,7 +183,7 @@ header.site .wrap { padding-top: 14px; }
 .site-name span { letter-spacing: 0.08em; }
 .site-name small { font-size: 0.9rem; font-weight: 500; color: #c3c0ba; margin-left: 6px; letter-spacing: 0; }
 
-/* the logo: an ochre tile with the word श्रम */
+/* the logo: a raised fist on a pillar over a gear, drawn in the page as SVG shapes */
 .site-name svg.logo-mark { width: 42px; height: 42px; flex: none; color: var(--ochre); }
 
 .head-tools { display: flex; align-items: center; gap: 14px; flex: none; }
