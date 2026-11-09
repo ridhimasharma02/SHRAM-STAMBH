@@ -16,6 +16,7 @@
 - [Screenshots](#screenshots)
 - [Languages](#languages)
 - [Run it on your computer](#run-it-on-your-computer)
+  - [Run it on localhost](#run-it-on-localhost-needed-for-the-microphone)
 - [Architecture](#architecture)
   - [The big picture](#the-big-picture)
   - [How a page loads](#how-a-page-loads)
@@ -111,7 +112,23 @@ There is nothing to install and nothing to build. The site is just HTML, CSS and
 
 **Double-click `index.html`** to open it in Chrome, Edge or Safari. Make an account with any name and a 10-digit mobile number starting with 6, 7, 8 or 9. The account is saved only in that browser.
 
-Opened this way, everything works except asking questions by microphone. Browsers only allow the microphone on a web address (`https://`, or `http://localhost` from a local web server such as the VS Code "Live Server" extension).
+Opened this way, everything works except asking questions by microphone. Browsers only allow the microphone on a web address (`https://` or `http://localhost`).
+
+### Run it on localhost (needed for the microphone)
+
+Use either of these. Neither adds anything to the project.
+
+**On a Mac, with nothing to install.** macOS comes with Ruby, which has a one-line web server. Open Terminal in the project folder and run:
+
+```bash
+ruby -run -e httpd . -p 8123
+```
+
+Then open **http://localhost:8123** in Chrome. To stop it, press `Ctrl + C` in Terminal.
+
+**On any computer, with VS Code.** Install the free "Live Server" extension, open the project folder, right-click `index.html` and choose **Open with Live Server**. It opens at **http://localhost:5500**.
+
+Either way, the site opens on the login page. Make an account to see the rest. Local servers don't use `404.html`, so a mistyped address shows the server's own "not found" page instead.
 
 ## Architecture
 
