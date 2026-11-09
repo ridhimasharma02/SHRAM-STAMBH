@@ -1,0 +1,35 @@
+name: Wrong fact or helpline number
+description: A helpline, wage rule, law or office on the site is wrong or out of date.
+title: "Fact: "
+labels: ["facts"]
+body:
+  - type: markdown
+    attributes:
+      value: Workers may act on what the site says, so wrong facts are fixed first. Please give a source.
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Which page is it on?
+      placeholder: help.html
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What the site says now
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: What it should say
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A government website, notification or official document.
+    validations:
+      required: true
