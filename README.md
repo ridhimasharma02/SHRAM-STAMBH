@@ -16,6 +16,14 @@
 - [Screenshots](#screenshots)
 - [Languages](#languages)
 - [Run it on your computer](#run-it-on-your-computer)
+- [Architecture](#architecture)
+  - [The big picture](#the-big-picture)
+  - [How a page loads](#how-a-page-loads)
+  - [Login and the page lock](#login-and-the-page-lock)
+  - [The voice](#the-voice)
+  - [Asking a question](#asking-a-question)
+  - [Saving the diary and notebook](#saving-the-diary-and-notebook)
+  - [How the scripts talk to each other](#how-the-scripts-talk-to-each-other)
 - [Changing the site](#changing-the-site)
 - [Putting it online](#putting-it-online)
 - [Accessibility](#accessibility)
@@ -97,6 +105,177 @@ There is nothing to install and nothing to build. The site is just HTML, CSS and
 **Double-click `index.html`** to open it in Chrome, Edge or Safari. Make an account with any name and a 10-digit mobile number starting with 6, 7, 8 or 9. The account is saved only in that browser.
 
 Opened this way, everything works except asking questions by microphone. Browsers only allow the microphone on a web address (`https://`, or `http://localhost` from a local web server such as the VS Code "Live Server" extension).
+
+## Architecture
+
+### The big picture
+
+SHRAM STAMBH is a **static website**: every page is a ready-made HTML file, and all the logic runs in the visitor's browser. There is no backend, no database, no framework and no build step.
+
+```mermaid
+flowchart LR
+  host["Any static web host<br>HTML, CSS, JS, audio clips"]
+  subgraph phone["The worker's phone"]
+    page["HTML page"]
+    js["Six small scripts"]
+    store[("Browser storage<br>accounts, diary, notes")]
+    clips["Recorded voice clips"]
+  end
+  speech["Google or Apple<br>speech-to-text"]
+  fonts["Google Fonts"]
+
+  host -- "files" --> page
+  host -- ".m4a" --> clips
+  page --> js
+  js <--> store
+  js --> clips
+  js -. "only while the mic is pressed" .-> speech
+  page -. "Mukta font, once" .-> fonts
+```
+
+Three choices shape everything else:
+
+| Choice | Why |
+|---|---|
+| **No server** | Nothing to run, pay for or keep secure. It can be hosted for free. Workers' details can't leak from a server because there isn't one. |
+| **Recorded voice instead of the phone's voice** | Many cheap Android phones have no Hindi, Tamil or Telugu voice installed, so their built-in speech would stay silent. A recording plays on any phone. |
+| **Plain JavaScript, no libraries** | Small files that load fast on slow mobile data. Nothing to update or patch. |
+
+### How a page loads
+
+Every page is a complete HTML file with the same shell: the dark top strip, the header and menu, the page's own content, a sidebar on wide screens, the footer and the bottom bar with four big buttons.
+
+```mermaid
+sequenceDiagram
+  participant B as Browser
+  participant L as Page lock (inline script)
+  participant S as Scripts (deferred)
+  B->>L: reads the head of the page
+  L->>L: is someone logged in, and active in the last 30 minutes?
+  alt not logged in
+    L->>B: hide the page, go to login.html?next=this-page
+  else logged in
+    B->>B: draws the page
+    B->>S: runs the scripts in order
+    S->>B: adds speaker buttons, header name, page features
+  end
+```
+
+1. **The page lock runs first.** A tiny inline script at the very top of `<head>` checks `sessionStorage` for a logged-in account. If there isn't one, it hides the page before anything is drawn and jumps to the login page. It checks again if the Back button shows a cached copy of the page, so logging out and pressing Back reveals nothing.
+2. **The scripts load in a fixed order**, all with `defer`, so they run after the HTML is ready:
+
+   | Order | File | What it sets up |
+   |---|---|---|
+   | 1 | `audio-manifest.js` | `SS_AUDIO`: the list of recorded clips |
+   | 2 | `lang-data.js` | `SS_LANG`: the seven languages and shared spoken lines |
+   | 3 | `account-data.js` | `SS_ACCOUNT`: login text, profile pictures and secret pictures |
+   | 4 | `speak.js` | The voice. Adds a speaker button to every box and wires up the language picker and Listen button |
+   | 5 | `account.js` | Accounts. Shows the logged-in name in the header and handles logging out |
+   | 6 | `site.js` | Print buttons and the contractor notebook |
+   | 7 | page's own script | `ask-data.js` + `ask.js` on the Ask page, `login.js` on the login page, `diary.js` on the diary page |
+
+3. **Cache busting.** Every CSS and JS link ends in `?v=36`. Raising the number makes phones fetch the new file instead of an old cached copy.
+4. **Without JavaScript**, the page lock can't run, so a CSS rule keeps the content hidden and a message with the 15100 and 112 call buttons shows instead.
+
+### Login and the page lock
+
+Workers often share one phone, so each person has their own account. Accounts live only on that phone ([account.js](account.js) and [login.js](login.js)).
+
+```mermaid
+stateDiagram-v2
+  [*] --> Who: open login page
+  Who --> Secret: tap your own picture
+  Who --> Avatar: new account
+  Avatar --> Details: pick a picture
+  Details --> Secret: name and mobile number
+  Secret --> Secret: new account, tap the four pictures again
+  Secret --> In: right code
+  Secret --> Locked: 5 wrong tries
+  Locked --> Secret: after 1 minute
+  In --> [*]: continue to the page you wanted
+```
+
+- **One step at a time.** The login screen shows a single step, and speaks its instruction in the chosen language. The name can be spoken into the microphone instead of typed.
+- **The secret code is never stored.** Only a fingerprint is saved: SHA-256 of a random salt plus the four picture ids. Logging in recomputes it and compares. Secret taps are never spoken aloud, so someone nearby can't hear the code.
+- **Checks.** A name needs at least two letters in any script. A mobile number must be a valid 10-digit Indian number, and can't be used by two accounts.
+- **Staying logged in.** The logged-in account is kept in `sessionStorage`, so closing the browser logs out. Every tap, key press or scroll updates a timestamp, and after 30 minutes without use the account logs out by itself.
+- **Forgot your pictures?** Nobody can reset the code, because there is no server. Instead, the account and its diary can be removed after a spoken warning and a second confirmation tap.
+
+### The voice
+
+[speak.js](speak.js) turns any box on the page into speech in the chosen language.
+
+```mermaid
+flowchart TD
+  tap["Speaker button pressed"] --> lang{"Chosen language"}
+  lang -- "Hindi or English" --> gather["Read the box's text<br>in that language"]
+  lang -- "other language" --> own{"Box has its own<br>data-say-xx text?"}
+  own -- yes --> text["Use that text"]
+  own -- no --> notice["Say 'this part is only in Hindi',<br>then use the Hindi text"]
+  gather --> clean["Tidy the text<br>spell out phone numbers: 1 5 1 0 0"]
+  text --> clean
+  notice --> clean
+  clean --> hash["Fingerprint the exact words<br>e.g. bfa5b5b0"]
+  hash --> found{"In audio-manifest.js?"}
+  found -- yes --> play["Play audio/hi/bfa5b5b0.m4a"]
+  found -- no --> tts["Phone's own voice"]
+  play -- "fails, or nothing after 12 seconds" --> tts
+```
+
+- **Finding the words.** Each page writes English and Hindi side by side, with Hindi marked `lang="hi"`. `gather()` walks through a box and collects only the text in the wanted language, skipping buttons, icons and hidden parts.
+- **Matching a recording.** The clip's file name is a short fingerprint (an FNV-1a hash) of its exact words. If even one letter changes, the fingerprint changes and the phone's own voice is used until the line is re-recorded.
+- **Where the clips came from.** They were made on a Mac with its built-in voices (`say` with Lekha, Tara, Piya, Vani, Geeta and Soumya), then compressed to small AAC files with `afconvert`, about 4 KB per second. A phone only downloads a clip when it is played.
+- **Behaving well on real phones.** A shaky double tap counts as one tap. Pressing the same button again stops it. Starting a new box stops the old one. If a phone blocks autoplay, a message asks for one more tap. A watchdog resets the phone's voice if it gets stuck.
+- **Choosing a language** saves it in `localStorage`, says a confirmation in the new language, and tells the rest of the page with an `ss-lang` event.
+
+### Asking a question
+
+[ask.js](ask.js) answers 16 common problems without AI. The browser turns speech into text, and the site matches that text against keywords.
+
+```mermaid
+sequenceDiagram
+  actor W as Worker
+  participant P as Ask page
+  participant R as Browser speech-to-text
+  participant M as Matcher (ask.js)
+  W->>P: presses the microphone
+  P->>R: listen in the chosen language
+  W->>R: "ठेकेदार ने पैसा नहीं दिया"
+  R->>M: up to 3 guesses of the words
+  M->>M: score every guess against 16 topics
+  M->>P: best topic, or "call 15100" if nothing matched
+  P->>W: shows the answer, plays the recorded answer
+```
+
+How the score works ([ask-data.js](ask-data.js) holds the words):
+
+1. The text is cleaned: lower case, punctuation removed, and small Hindi spelling differences such as nukta dots evened out.
+2. Each topic scores **2 points** for every strong keyword (such as "ठेकेदार", "காயம்" or "PF") and **1 point** for every weak one (such as "card").
+3. It gets **3 more points** when words from two groups appear together. For example a money word plus a "not" word means unpaid wages ("पैसा नहीं मिला"). The groups are `MONEY`, `NEG`, `WHEN`, `HOWMUCH`, `CONTRACTOR` and `DOMESTIC`, each with words in all seven languages and romanised Hindi.
+4. The highest score wins. Ties go to the more urgent topic, so forced labour beats a general answer.
+5. Without a microphone, the same answers come from 16 picture buttons or a text box.
+
+### Saving the diary and notebook
+
+Everything a person saves stays in their own browser's `localStorage`. Each logged-in person's data is stored under their own key (`name:accountid`), so two people sharing a phone never see each other's diary or notes.
+
+| What | Stored as |
+|---|---|
+| Work diary ([diary.js](diary.js)) | Daily rate, employer details, the days marked as worked, and each payment received. The page adds these up to show what is still owed. |
+| Contractor notebook ([site.js](site.js)) | A list of contractors with a verdict: paid fully, paid late or less, or did not pay. Each can be shared to WhatsApp as a ready-made message. |
+
+### How the scripts talk to each other
+
+The scripts don't import each other. They share a few named objects on `window` and two events:
+
+| Shared by | Name | Used for |
+|---|---|---|
+| speak.js | `ssSpeak()`, `ssStop()`, `ssLang()`, `ssSetLang()`, `ssToast()` | Any script can speak a line, stop speaking, read or change the language, or show a short message |
+| speak.js | `ssDebug` | Testing: lists every sentence a page can speak and its clip |
+| account.js | `ssAccount` | Create, check, log in, log out and remove accounts; `key()` gives a per-person storage name |
+| login.js | `ssLogin` | The login screen |
+| speak.js | `ss-lang` event | Fired when the language changes. The Ask page, the login screen and the header relabel themselves |
+| account.js | `ss-account` event | Fired when someone logs in or out. Nothing listens for it yet; it is there for future features |
 
 ## Changing the site
 
