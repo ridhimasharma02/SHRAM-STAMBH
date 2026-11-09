@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask a question | SHRAM STAMBH</title>
+  <meta name="description" content="Ask a question about wages and workers' rights by speaking in Hindi, English, Bengali, Marathi, Tamil, Telugu or Kannada, and hear the answer.">
+  <meta name="theme-color" content="#2e3336">
+  <meta property="og:site_name" content="SHRAM STAMBH · श्रम स्तंभ">
+  <meta property="og:title" content="Ask a question | SHRAM STAMBH">
+  <meta property="og:description" content="Ask a question about wages and workers' rights by speaking in Hindi, English, Bengali, Marathi, Tamil, Telugu or Kannada, and hear the answer.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=36">
+  <script>
+  (function () {
+    function check() {
+      var ok = false;
+      try {
+        var id = JSON.parse(sessionStorage.getItem('ss-session') || 'null');
+        var last = JSON.parse(sessionStorage.getItem('ss-last') || '0');
+        var list = JSON.parse(localStorage.getItem('ss-profiles') || '[]');
+        var fresh = !last || Date.now() - last < 30 * 60 * 1000;   /* 30 minutes unused logs out */
+        ok = !!id && fresh && list.some(function (p) { return p.id === id; });
+      } catch (e) {}
+      if (!ok) {
+        document.documentElement.style.display = 'none';
+        var here = location.pathname.split('/').pop() || 'index.html';
+        location.replace('login.html?next=' + encodeURIComponent(here + location.hash));
+      }
+    }
+    check();
+    /* the Back button can show a saved copy of the page: check again */
+    window.addEventListener('pageshow', function (e) { if (e.persisted) check(); });
+  })();
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="audio-manifest.js?v=36" defer></script>
+  <script src="lang-data.js?v=36" defer></script>
+  <script src="account-data.js?v=36" defer></script>
+  <script src="speak.js?v=36" defer></script>
+  <script src="account.js?v=36" defer></script>
+  <script src="site.js?v=36" defer></script>
+  <script src="ask-data.js?v=36" defer></script>
+  <script src="ask.js?v=36" defer></script>
+</head>
+<body class="t-help">
+<a class="skip" href="#content">Skip to content</a>
+<noscript>
+  <div class="nojs-box">
+    <p><strong>This site needs JavaScript to log in and to speak.</strong> Please turn JavaScript on, or open the site in Chrome.</p>
+    <p lang="hi">लॉग इन और आवाज़ के लिए JavaScript चाहिए। कृपया उसे चालू करें या Chrome में खोलें।</p>
+    <p>For help now · अभी मदद के लिए:</p>
+    <a class="callbtn" href="tel:15100">15100<small>Free legal help · मुफ़्त कानूनी मदद</small></a>
+    <a class="callbtn red" href="tel:112">112<small>Danger · खतरा</small></a>
+  </div>
+</noscript>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brandrow">
+      <p class="site-name"><a href="index.html"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect width="48" height="48" fill="#b5832a"/><text x="24" y="31.5" text-anchor="middle" font-size="19" font-weight="800" font-family="Mukta, &apos;Noto Sans Devanagari&apos;, &apos;Kohinoor Devanagari&apos;, sans-serif" fill="#1d1f20">श्रम</text></svg><span>SHRAM STAMBH <small lang="hi">श्रम स्तंभ</small></span></a></p>
+      <div class="head-tools">
+        <span id="voice-slot"></span>
+        <div class="account" id="account-slot"><a class="account-link" href="login.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="21" width="30" height="23"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><path d="M24 30v6"/></svg><span>Log in<span class="hi" lang="hi">लॉग इन</span></span></a></div>
+      </div>
+    </div>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li class=""><a href="index.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22L24 8l18 14"/><path d="M11 19v21h26V19"/></svg><span>Home<span class="hi" lang="hi">मुख्य पन्ना</span></span></a></li>
+        <li class="t-rights"><a href="rights.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 6v34M14 42h20M8 14h32"/><path d="M12 14L6 27a6 4 0 0 0 12 0z"/><path d="M36 14l-6 13a6 4 0 0 0 12 0z"/></svg><span>Your rights<span class="hi" lang="hi">आपके अधिकार</span></span></a></li>
+        <li class="t-wages"><a href="wages.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="12" width="40" height="24"/><path d="M19 18h10M19 22h10M22 18c5 0 5 8 0 8h-3l8 5"/></svg><span>Not paid?<span class="hi" lang="hi">पैसा नहीं मिला?</span></span></a></li>
+        <li class="t-wages"><a href="diary.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="32"/><path d="M6 18h36M15 5v8M33 5v8"/><path d="M15 28l5 5 10-10"/></svg><span>Work diary<span class="hi" lang="hi">काम का हिसाब</span></span></a></li>
+        <li class="t-job"><a href="before-job.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34"/><path d="M18 11V5h12v6z"/><path d="M17 26l5 5 9-10"/></svg><span>Before a job<span class="hi" lang="hi">काम से पहले</span></span></a></li>
+        <li class="t-help"><a href="ask.html" aria-current="page"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span>Ask<span class="hi" lang="hi">सवाल पूछें</span></span></a></li>
+        <li class="t-help"><a href="help.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span>Get help<span class="hi" lang="hi">मदद लें</span></span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="wrap layout">
+    <div class="content">
+
+    <p class="crumbs"><a href="index.html">Home</a> / Ask</p>
+    <div class="pagehead t-help"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><h1>Ask a question<span class="hi" lang="hi">सवाल पूछें</span></h1></div>
+
+    <div class="panel no-js">
+      <p>Asking by voice needs a newer phone browser. Call <a href="tel:15100">15100</a> to ask a person, for free, in your language.<span class="hi" lang="hi">बोलकर पूछने के लिए नया ब्राउज़र चाहिए। किसी इंसान से पूछने के लिए 15100 पर मुफ़्त फ़ोन करें।</span></p>
+    </div>
+
+    <div id="ask-root" class="needs-js" data-say-hi="बड़ा माइक्रोफ़ोन बटन दबाएँ और अपनी भाषा में सवाल पूछें। जैसे: मुझे पैसा नहीं मिला, मैं क्या करूँ? जवाब बोलकर सुनाया जाएगा।" data-say-en="Press the big microphone button and ask your question in your language. For example: I was not paid, what should I do? The answer will be spoken." data-say-bn="বড় মাইক্রোফোন বোতাম টিপুন আর নিজের ভাষায় প্রশ্ন করুন। যেমন: আমি টাকা পাইনি, কী করব? উত্তর বলে শোনানো হবে।" data-say-mr="मोठे मायक्रोफोन बटण दाबा आणि तुमच्या भाषेत प्रश्न विचारा. उदाहरणार्थ: मला पैसे मिळाले नाहीत, मी काय करू? उत्तर बोलून ऐकवले जाईल." data-say-ta="பெரிய மைக்ரோஃபோன் பொத்தானை அழுத்தி உங்கள் மொழியில் கேள்வி கேளுங்கள். உதாரணம்: எனக்கு சம்பளம் கிடைக்கவில்லை, நான் என்ன செய்வது? பதில் குரலில் சொல்லப்படும்." data-say-te="పెద్ద మైక్రోఫోన్ బటన్ నొక్కి మీ భాషలో ప్రశ్న అడగండి. ఉదాహరణకు: నాకు జీతం రాలేదు, నేను ఏం చేయాలి? జవాబు మాటల్లో వినిపిస్తుంది." data-say-kn="ದೊಡ್ಡ ಮೈಕ್ರೋಫೋನ್ ಬಟನ್ ಒತ್ತಿ ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಪ್ರಶ್ನೆ ಕೇಳಿ. ಉದಾಹರಣೆಗೆ: ನನಗೆ ಸಂಬಳ ಸಿಕ್ಕಿಲ್ಲ, ನಾನು ಏನು ಮಾಡಲಿ? ಉತ್ತರವನ್ನು ಮಾತಿನಲ್ಲಿ ಕೇಳಿಸಲಾಗುತ್ತದೆ.">
+      <div class="panel askpanel" data-no-say>
+        <h2 data-ui="chooseLang">Choose your language</h2>
+        <div class="langrow" aria-label="Choose your language"></div>
+
+        <div class="askmain">
+          <button type="button" id="mic" class="mic" aria-pressed="false"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span id="mic-label">Press and ask your question</span></button>
+          <div class="askhelp">
+            <button type="button" id="how-say" class="bigsay" data-say-hi="बड़ा माइक्रोफ़ोन बटन दबाएँ और अपनी भाषा में सवाल पूछें। जैसे: मुझे पैसा नहीं मिला, मैं क्या करूँ? जवाब बोलकर सुनाया जाएगा।" data-say-en="Press the big microphone button and ask your question in your language. For example: I was not paid, what should I do? The answer will be spoken." data-say-bn="বড় মাইক্রোফোন বোতাম টিপুন আর নিজের ভাষায় প্রশ্ন করুন। যেমন: আমি টাকা পাইনি, কী করব? উত্তর বলে শোনানো হবে।" data-say-mr="मोठे मायक्रोफोन बटण दाबा आणि तुमच्या भाषेत प्रश्न विचारा. उदाहरणार्थ: मला पैसे मिळाले नाहीत, मी काय करू? उत्तर बोलून ऐकवले जाईल." data-say-ta="பெரிய மைக்ரோஃபோன் பொத்தானை அழுத்தி உங்கள் மொழியில் கேள்வி கேளுங்கள். உதாரணம்: எனக்கு சம்பளம் கிடைக்கவில்லை, நான் என்ன செய்வது? பதில் குரலில் சொல்லப்படும்." data-say-te="పెద్ద మైక్రోఫోన్ బటన్ నొక్కి మీ భాషలో ప్రశ్న అడగండి. ఉదాహరణకు: నాకు జీతం రాలేదు, నేను ఏం చేయాలి? జవాబు మాటల్లో వినిపిస్తుంది." data-say-kn="ದೊಡ್ಡ ಮೈಕ್ರೋಫೋನ್ ಬಟನ್ ಒತ್ತಿ ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಪ್ರಶ್ನೆ ಕೇಳಿ. ಉದಾಹರಣೆಗೆ: ನನಗೆ ಸಂಬಳ ಸಿಕ್ಕಿಲ್ಲ, ನಾನು ಏನು ಮಾಡಲಿ? ಉತ್ತರವನ್ನು ಮಾತಿನಲ್ಲಿ ಕೇಳಿಸಲಾಗುತ್ತದೆ." aria-label="How to ask"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18h8l10-8v28l-10-8H6z"/><path d="M31 17a10 10 0 0 1 0 14M36 12a17 17 0 0 1 0 24"/></svg></button>
+            <p class="muted" style="margin:0">How to ask · कैसे पूछें</p>
+          </div>
+        </div>
+
+        <p id="ask-msg" class="warn" role="status" hidden></p>
+        <div id="heard" class="heardbox" hidden><span class="lbl"></span><p id="heard-text"></p></div>
+        <div id="answer" class="answerbox" aria-live="polite" hidden><span class="lbl"></span><p id="answer-text"></p><div id="answer-actions" class="acts"></div></div>
+      </div>
+
+      <div class="panel" id="qgrid" data-no-say>
+        <h2 data-ui="orTap">Or tap a question</h2>
+        <div class="qgrid">
+          <button type="button" class="qbtn" data-topic="unpaid"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="12" width="40" height="24"/><path d="M19 18h10M19 22h10M22 18c5 0 5 8 0 8h-3l8 5"/></svg><span class="qlabel" lang="hi">पैसा नहीं मिला</span></button>
+          <button type="button" class="qbtn" data-topic="minwage"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="24" cy="12" rx="14" ry="5"/><path d="M10 12v8c0 3 6 5 14 5s14-2 14-5v-8"/><path d="M10 20v8c0 3 6 5 14 5s14-2 14-5v-8"/><path d="M10 28v8c0 3 6 5 14 5s14-2 14-5v-8"/></svg><span class="qlabel" lang="hi">न्यूनतम मज़दूरी</span></button>
+          <button type="button" class="qbtn" data-topic="paytime"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="32"/><path d="M6 18h36M15 5v8M33 5v8"/><path d="M19 24h10M19 28h10M22 24c5 0 5 7 0 7h-2l7 5"/></svg><span class="qlabel" lang="hi">पैसा कब मिले</span></button>
+          <button type="button" class="qbtn" data-topic="hours"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="18"/><path d="M24 11v13l-9 5"/></svg><span class="qlabel" lang="hi">घंटे और ओवरटाइम</span></button>
+          <button type="button" class="qbtn" data-topic="injury"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="13" width="36" height="27"/><path d="M18 13V7h12v6M24 20v13M17.5 26.5h13"/></svg><span class="qlabel" lang="hi">काम पर चोट</span></button>
+          <button type="button" class="qbtn" data-topic="contractor"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="14" r="4"/><circle cx="24" cy="11" r="5"/><circle cx="36" cy="14" r="4"/><path d="M4 38v-8a8 8 0 0 1 12-6M44 38v-8a8 8 0 0 0-12-6M16 40V28a8 8 0 0 1 16 0v12"/></svg><span class="qlabel" lang="hi">ठेकेदार भाग गया</span></button>
+          <button type="button" class="qbtn" data-topic="newjob"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34"/><path d="M18 11V5h12v6z"/><path d="M17 26l5 5 9-10"/></svg><span class="qlabel" lang="hi">नया काम</span></button>
+          <button type="button" class="qbtn" data-topic="legalaid"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 6v34M14 42h20M8 14h32"/><path d="M12 14L6 27a6 4 0 0 0 12 0z"/><path d="M36 14l-6 13a6 4 0 0 0 12 0z"/></svg><span class="qlabel" lang="hi">मुफ़्त वकील</span></button>
+          <button type="button" class="qbtn" data-topic="domestic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22L24 8l18 14"/><path d="M10 19v21h28V19"/><path d="M20 40V28h8v12"/></svg><span class="qlabel" lang="hi">घरेलू काम</span></button>
+          <button type="button" class="qbtn" data-topic="eshram"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="10" width="40" height="28"/><circle cx="15" cy="21" r="4"/><path d="M8 32a7 6 0 0 1 14 0M27 19h11M27 25h8"/></svg><span class="qlabel" lang="hi">ई-श्रम कार्ड</span></button>
+          <button type="button" class="qbtn" data-topic="pf"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4h18l8 8v32H12z"/><path d="M30 4v8h8M18 22h14M18 28h14M18 34h8"/></svg><span class="qlabel" lang="hi">PF</span></button>
+          <button type="button" class="qbtn" data-topic="esi"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 42V15h34v27"/><path d="M24 21v13M17.5 27.5h13"/><path d="M3 42h42M15 15V7h18v8"/></svg><span class="qlabel" lang="hi">ESI कार्ड</span></button>
+          <button type="button" class="qbtn" data-topic="harassment"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 27V12a3 3 0 0 1 6 0v10M22 22V8a3 3 0 0 1 6 0v14M28 22V10a3 3 0 0 1 6 0v16M34 19a3 3 0 0 1 6 0v9c0 9-6 16-14 16-6 0-10-3-13-9l-4-8a3 3 0 0 1 5-3l2 4"/></svg><span class="qlabel" lang="hi">उत्पीड़न</span></button>
+          <button type="button" class="qbtn" data-topic="forced"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 31l6-6a5 5 0 0 1 7 7l-6 6a5 5 0 0 1-7-7z"/><path d="M28 16l6-6a5 5 0 0 1 7 7l-6 6a5 5 0 0 1-7-7z"/><path d="M21 21l-3-3M27 27l3 3M24 18v-4M30 24h4"/></svg><span class="qlabel" lang="hi">ज़बरदस्ती काम</span></button>
+          <button type="button" class="qbtn" data-topic="child"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="12" r="5"/><path d="M17 42V27a7 7 0 0 1 14 0v15"/><path d="M6 6l36 36"/></svg><span class="qlabel" lang="hi">बच्चे से काम</span></button>
+          <button type="button" class="qbtn" data-topic="migrant"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="6" width="32" height="30"/><path d="M8 22h32M14 36v5M34 36v5"/><path d="M15 29h2M31 29h2"/></svg><span class="qlabel" lang="hi">दूसरे राज्य से</span></button>
+        </div>
+      </div>
+
+      <form id="type-form" class="panel typeform" data-no-say autocomplete="off">
+        <label for="type-input" data-ui="typeHere">Or type your question</label>
+        <div class="payrow">
+          <input id="type-input" type="text" enterkeyhint="send">
+          <button type="submit" class="btn dark" data-ui="askBtn">Ask</button>
+        </div>
+      </form>
+
+      <p class="muted">When you press the microphone, your browser sends your voice to Google (in Chrome) or Apple (in Safari) to turn it into words. SHRAM STAMBH does not keep it. The answers are general information. For your own case, call 15100.<span class="hi" lang="hi">माइक्रोफ़ोन दबाने पर आपका ब्राउज़र आपकी आवाज़ को शब्दों में बदलने के लिए Google या Apple को भेजता है। श्रम स्तंभ उसे नहीं रखता। अपने मामले के लिए 15100 पर फ़ोन करें।</span></p>
+    </div>
+
+    </div>
+    <aside class="sidebar noprint" aria-label="Listen and get help">
+      <div class="side-card side-listen">
+        <button type="button" class="bigsay side-say" data-read="page" aria-label="Listen to this page"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18h8l10-8v28l-10-8H6z"/><path d="M31 17a10 10 0 0 1 0 14M36 12a17 17 0 0 1 0 24"/></svg><span>Listen to this page<span class="hi" lang="hi">यह पन्ना सुनें</span></span></button>
+        <p class="side-label">Voice language · आवाज़ की भाषा</p>
+        <div class="langrow" aria-label="Choose your language"></div>
+      </div>
+      <div class="side-card side-help">
+        <p class="side-title"><strong>Need help now?</strong><span class="hi" lang="hi">अभी मदद चाहिए?</span></p>
+        <a class="callbtn" href="tel:15100"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span>15100<small>Free legal help · मुफ़्त कानूनी मदद</small></span></a>
+        <a class="callbtn red" href="tel:112"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 5L45 41H3z"/><path d="M24 18v11M24 34v1"/></svg><span>112<small>Danger · खतरा</small></span></a>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-name"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect width="48" height="48" fill="#b5832a"/><text x="24" y="31.5" text-anchor="middle" font-size="19" font-weight="800" font-family="Mukta, &apos;Noto Sans Devanagari&apos;, &apos;Kohinoor Devanagari&apos;, sans-serif" fill="#1d1f20">श्रम</text></svg><span>SHRAM STAMBH <small lang="hi">श्रम स्तंभ</small></span></p>
+      <p>Information for daily-wage, construction, domestic and factory workers in India.</p>
+      <p class="muted">This site gives general information, not legal advice. Rules and minimum wages are different in every state. Use it to know what to ask, then confirm with your district labour office or free legal aid on 15100.</p>
+      <p class="muted" lang="hi">यह सामान्य जानकारी है, कानूनी सलाह नहीं। हर राज्य के नियम और न्यूनतम मज़दूरी अलग हैं। पक्की जानकारी के लिए ज़िला श्रम कार्यालय या 15100 पर बात करें।</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rights.html">Your rights</a></li>
+      <li><a href="pictures.html">Rights in pictures</a></li>
+      <li><a href="wages.html">Not paid?</a></li>
+      <li><a href="diary.html">Work diary</a></li>
+      <li><a href="before-job.html">Before a job</a></li>
+      <li><a href="show.html">Show this screen</a></li>
+      <li><a href="ask.html">Ask a question</a></li>
+      <li><a href="help.html">Helplines</a></li>
+      <li><a href="login.html">Log in</a></li>
+      <li><a href="https://wa.me/?text=SHRAM%20STAMBH%20%28%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE%20%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A4%82%E0%A4%AD%29%3A%20free%20information%20for%20workers%20on%20wages%20and%20rights%2C%20in%20English%20and%20Hindi%2C%20with%20read-aloud.%20%E0%A4%AE%E0%A4%9C%E0%A4%BC%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%87%20%E0%A4%85%E0%A4%A7%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%B0%20%E0%A4%94%E0%A4%B0%20%E0%A4%AE%E0%A4%9C%E0%A4%BC%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%80%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%2C%20%E0%A4%B8%E0%A5%81%E0%A4%A8%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BF%E0%A4%A7%E0%A4%BE%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%E0%A5%A4">Send this site on WhatsApp</a></li>
+    </ul>
+    <p class="foot-small">No tracking. Your account, name and mobile number stay on this phone and are never sent anywhere. We never ask for Aadhaar. &nbsp;·&nbsp; Last checked: November 2026</p>
+  </div>
+</footer>
+
+<nav class="bottombar noprint" aria-label="Quick help">
+  <ul>
+    <li><a href="tel:15100"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span><b>15100</b>Free help · मदद</span></a></li>
+    <li><a class="sos" href="tel:112"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 5L45 41H3z"/><path d="M24 18v11M24 34v1"/></svg><span><b>112</b>Danger · खतरा</span></a></li>
+    <li><a class="askbtn" href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span><b>Ask</b>सवाल पूछें</span></a></li>
+    <li id="listen-slot"><a href="help.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="14" r="4"/><circle cx="24" cy="11" r="5"/><circle cx="36" cy="14" r="4"/><path d="M4 38v-8a8 8 0 0 1 12-6M44 38v-8a8 8 0 0 0-12-6M16 40V28a8 8 0 0 1 16 0v12"/></svg><span><b>Help</b>मदद लें</span></a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

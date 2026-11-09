@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rights in pictures | SHRAM STAMBH</title>
+  <meta name="description" content="Workers' rights in India shown as simple pictures with read-aloud in Hindi and English.">
+  <meta name="theme-color" content="#2e3336">
+  <meta property="og:site_name" content="SHRAM STAMBH · श्रम स्तंभ">
+  <meta property="og:title" content="Rights in pictures | SHRAM STAMBH">
+  <meta property="og:description" content="Workers' rights in India shown as simple pictures with read-aloud in Hindi and English.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=36">
+  <script>
+  (function () {
+    function check() {
+      var ok = false;
+      try {
+        var id = JSON.parse(sessionStorage.getItem('ss-session') || 'null');
+        var last = JSON.parse(sessionStorage.getItem('ss-last') || '0');
+        var list = JSON.parse(localStorage.getItem('ss-profiles') || '[]');
+        var fresh = !last || Date.now() - last < 30 * 60 * 1000;   /* 30 minutes unused logs out */
+        ok = !!id && fresh && list.some(function (p) { return p.id === id; });
+      } catch (e) {}
+      if (!ok) {
+        document.documentElement.style.display = 'none';
+        var here = location.pathname.split('/').pop() || 'index.html';
+        location.replace('login.html?next=' + encodeURIComponent(here + location.hash));
+      }
+    }
+    check();
+    /* the Back button can show a saved copy of the page: check again */
+    window.addEventListener('pageshow', function (e) { if (e.persisted) check(); });
+  })();
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="audio-manifest.js?v=36" defer></script>
+  <script src="lang-data.js?v=36" defer></script>
+  <script src="account-data.js?v=36" defer></script>
+  <script src="speak.js?v=36" defer></script>
+  <script src="account.js?v=36" defer></script>
+  <script src="site.js?v=36" defer></script>
+</head>
+<body class="t-rights">
+<a class="skip" href="#content">Skip to content</a>
+<noscript>
+  <div class="nojs-box">
+    <p><strong>This site needs JavaScript to log in and to speak.</strong> Please turn JavaScript on, or open the site in Chrome.</p>
+    <p lang="hi">लॉग इन और आवाज़ के लिए JavaScript चाहिए। कृपया उसे चालू करें या Chrome में खोलें।</p>
+    <p>For help now · अभी मदद के लिए:</p>
+    <a class="callbtn" href="tel:15100">15100<small>Free legal help · मुफ़्त कानूनी मदद</small></a>
+    <a class="callbtn red" href="tel:112">112<small>Danger · खतरा</small></a>
+  </div>
+</noscript>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brandrow">
+      <p class="site-name"><a href="index.html"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect width="48" height="48" fill="#b5832a"/><text x="24" y="31.5" text-anchor="middle" font-size="19" font-weight="800" font-family="Mukta, &apos;Noto Sans Devanagari&apos;, &apos;Kohinoor Devanagari&apos;, sans-serif" fill="#1d1f20">श्रम</text></svg><span>SHRAM STAMBH <small lang="hi">श्रम स्तंभ</small></span></a></p>
+      <div class="head-tools">
+        <span id="voice-slot"></span>
+        <div class="account" id="account-slot"><a class="account-link" href="login.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="21" width="30" height="23"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><path d="M24 30v6"/></svg><span>Log in<span class="hi" lang="hi">लॉग इन</span></span></a></div>
+      </div>
+    </div>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li class=""><a href="index.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22L24 8l18 14"/><path d="M11 19v21h26V19"/></svg><span>Home<span class="hi" lang="hi">मुख्य पन्ना</span></span></a></li>
+        <li class="t-rights"><a href="rights.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 6v34M14 42h20M8 14h32"/><path d="M12 14L6 27a6 4 0 0 0 12 0z"/><path d="M36 14l-6 13a6 4 0 0 0 12 0z"/></svg><span>Your rights<span class="hi" lang="hi">आपके अधिकार</span></span></a></li>
+        <li class="t-wages"><a href="wages.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="12" width="40" height="24"/><path d="M19 18h10M19 22h10M22 18c5 0 5 8 0 8h-3l8 5"/></svg><span>Not paid?<span class="hi" lang="hi">पैसा नहीं मिला?</span></span></a></li>
+        <li class="t-wages"><a href="diary.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="32"/><path d="M6 18h36M15 5v8M33 5v8"/><path d="M15 28l5 5 10-10"/></svg><span>Work diary<span class="hi" lang="hi">काम का हिसाब</span></span></a></li>
+        <li class="t-job"><a href="before-job.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34"/><path d="M18 11V5h12v6z"/><path d="M17 26l5 5 9-10"/></svg><span>Before a job<span class="hi" lang="hi">काम से पहले</span></span></a></li>
+        <li class="t-help"><a href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span>Ask<span class="hi" lang="hi">सवाल पूछें</span></span></a></li>
+        <li class="t-help"><a href="help.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span>Get help<span class="hi" lang="hi">मदद लें</span></span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="wrap layout">
+    <div class="content">
+
+    <p class="crumbs"><a href="index.html">Home</a> / Rights in pictures</p>
+    <div class="pagehead t-rights"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="9" width="38" height="30"/><circle cx="16" cy="19" r="4"/><path d="M5 34l12-10 9 8 6-5 11 9"/></svg><h1>Your rights in pictures<span class="hi" lang="hi">तस्वीरों में आपके अधिकार</span></h1></div>
+
+    <div class="listen-intro needs-speech">
+      <button type="button" class="bigsay" data-read="#pics" aria-label="Listen to all the pictures"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18h8l10-8v28l-10-8H6z"/><path d="M31 17a10 10 0 0 1 0 14M36 12a17 17 0 0 1 0 24"/></svg></button>
+      <p><strong>Press to hear all of them, one by one.</strong><span class="hi" lang="hi">सब एक-एक करके सुनने के लिए दबाएँ।</span>
+      <span class="muted">Or press the small speaker on one picture.</span></p>
+    </div>
+
+    <p class="muted">Blue pictures are what you are owed. Red pictures are things nobody is allowed to do to you.<span class="hi" lang="hi">नीली तस्वीरें आपके हक़ हैं। लाल तस्वीरें वो हैं जो कोई आपके साथ नहीं कर सकता।</span></p>
+
+    <ul class="pics" id="pics">
+      <li data-say-bn="প্রতিটি কাজে অন্তত ন্যূনতম মজুরি।" data-say-mr="प्रत्येक कामात किमान मजुरी." data-say-ta="ஒவ்வொரு வேலைக்கும் குறைந்தபட்ச கூலி." data-say-te="ప్రతి పనికీ కనీస వేతనం." data-say-kn="ಪ್ರತಿ ಕೆಲಸಕ್ಕೂ ಕನಿಷ್ಠ ವೇತನ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="24" cy="12" rx="14" ry="5"/><path d="M10 12v8c0 3 6 5 14 5s14-2 14-5v-8"/><path d="M10 20v8c0 3 6 5 14 5s14-2 14-5v-8"/><path d="M10 28v8c0 3 6 5 14 5s14-2 14-5v-8"/></svg></div><strong>At least the minimum wage, for every job<span class="hi" lang="hi">हर काम में कम से कम न्यूनतम मज़दूरी</span></strong><a class="more noread" href="rights.html">More</a></li>
+      <li data-say-bn="সময়ে টাকা। দিনমজুরি সেই দিনই, মাসের বেতন 7 তারিখের মধ্যে।" data-say-mr="वेळेवर पैसे. रोजंदारी त्याच दिवशी, महिन्याचा पगार 7 तारखेपर्यंत." data-say-ta="சரியான நேரத்தில் பணம். தினக்கூலி அதே நாளில், மாதச் சம்பளம் 7 ஆம் தேதிக்குள்." data-say-te="సమయానికి డబ్బు. రోజు కూలీ అదే రోజు, నెల జీతం 7వ తేదీ లోపు." data-say-kn="ಸಮಯಕ್ಕೆ ಹಣ. ದಿನಗೂಲಿ ಅದೇ ದಿನ, ತಿಂಗಳ ಸಂಬಳ 7 ನೇ ತಾರೀಖಿನೊಳಗೆ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="32"/><path d="M6 18h36M15 5v8M33 5v8"/><path d="M19 24h10M19 28h10M22 24c5 0 5 7 0 7h-2l7 5"/></svg></div><strong>Paid on time. Daily wage the same day, monthly pay by the 7th<span class="hi" lang="hi">समय पर पैसा। दिहाड़ी उसी दिन, महीने का पैसा 7 तारीख तक</span></strong><a class="more noread" href="rights.html">More</a></li>
+      <li data-say-bn="দিনে 8 ঘণ্টা পর্যন্ত কাজ।" data-say-mr="दिवसाला 8 तासांपर्यंत काम." data-say-ta="ஒரு நாளில் 8 மணி நேரம் வரை வேலை." data-say-te="రోజుకు 8 గంటల వరకు పని." data-say-kn="ದಿನಕ್ಕೆ 8 ಗಂಟೆಗಳವರೆಗೆ ಕೆಲಸ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="18"/><path d="M24 11v13l-9 5"/></svg></div><strong>Up to 8 hours of work a day<span class="hi" lang="hi">दिन में 8 घंटे तक काम</span></strong><a class="more noread" href="rights.html">More</a></li>
+      <li data-say-bn="সপ্তাহে এক দিন ছুটি।" data-say-mr="आठवड्यातून एक दिवस सुट्टी." data-say-ta="வாரத்தில் ஒரு நாள் விடுமுறை." data-say-te="వారానికి ఒక రోజు సెలవు." data-say-kn="ವಾರಕ್ಕೆ ಒಂದು ದಿನ ರಜೆ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 38V12M4 30h40v8M44 30v-5a6 6 0 0 0-6-6H22v11"/><circle cx="13" cy="23" r="4"/></svg></div><strong>One day off every week<span class="hi" lang="hi">हफ़्ते में एक दिन छुट्टी</span></strong><a class="more noread" href="rights.html">More</a></li>
+      <li data-say-bn="বাড়তি ঘণ্টার জন্য দ্বিগুণ টাকা।" data-say-mr="जास्त तासांसाठी दुप्पट पैसे." data-say-ta="கூடுதல் நேரத்திற்கு இரண்டு மடங்கு பணம்." data-say-te="అదనపు గంటలకు రెట్టింపు డబ్బు." data-say-kn="ಹೆಚ್ಚುವರಿ ಗಂಟೆಗಳಿಗೆ ಎರಡು ಪಟ್ಟು ಹಣ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="16" cy="24" r="12"/><path d="M16 16v8l5 3"/><text x="29" y="31" font-size="15" font-weight="bold" font-family="Arial, sans-serif" fill="currentColor" stroke="none">2×</text></svg></div><strong>Extra hours are paid double<span class="hi" lang="hi">ज़्यादा घंटों का दोगुना पैसा</span></strong><a class="more noread" href="rights.html">More</a></li>
+      <li data-say-bn="একই কাজে মহিলা আর পুরুষের সমান মজুরি।" data-say-mr="एकाच कामासाठी स्त्री आणि पुरुषाला सारखी मजुरी." data-say-ta="ஒரே வேலைக்கு பெண்ணுக்கும் ஆணுக்கும் சம கூலி." data-say-te="ఒకే పనికి స్త్రీకీ పురుషుడికీ సమాన కూలీ." data-say-kn="ಒಂದೇ ಕೆಲಸಕ್ಕೆ ಹೆಣ್ಣಿಗೂ ಗಂಡಿಗೂ ಸಮಾನ ಕೂಲಿ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="5"/><path d="M4 42V28a7 7 0 0 1 14 0v14"/><circle cx="37" cy="11" r="5"/><path d="M29 42l3-15h10l3 15z"/><path d="M21 22h6M21 28h6"/></svg></div><strong>Same work, same pay for women and men<span class="hi" lang="hi">एक जैसा काम, औरत और आदमी को बराबर पैसा</span></strong><a class="more noread" href="rights.html">More</a></li>
+      <li data-say-bn="হেলমেট, দস্তানা আর সেফটি বেল্ট বিনা খরচে।" data-say-mr="हेल्मेट, हातमोजे आणि सेफ्टी बेल्ट मोफत." data-say-ta="ஹெல்மெட், கையுறை, பாதுகாப்பு பெல்ட் இலவசம்." data-say-te="హెల్మెట్, చేతి తొడుగులు, సేఫ్టీ బెల్ట్ ఉచితం." data-say-kn="ಹೆಲ್ಮೆಟ್, ಕೈಗವಸು ಮತ್ತು ಸೇಫ್ಟಿ ಬೆಲ್ಟ್ ಉಚಿತ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 32a16 15 0 0 1 32 0"/><path d="M4 32h40v5H4z"/><path d="M20 18v-6h8v6"/></svg></div><strong>Helmet, gloves and safety belt are free<span class="hi" lang="hi">हेलमेट, दस्ताने और सेफ़्टी बेल्ट मुफ़्त</span></strong><a class="more noread" href="rights.html#construction">More</a></li>
+      <li data-say-bn="কাজে আঘাত পেলে ক্ষতিপূরণ মালিক দেবে।" data-say-mr="कामावर दुखापत झाली तर नुकसानभरपाई मालक देईल." data-say-ta="வேலையில் காயம் பட்டால் இழப்பீட்டை முதலாளி கொடுக்க வேண்டும்." data-say-te="పనిలో గాయమైతే నష్టపరిహారం యజమాని ఇవ్వాలి." data-say-kn="ಕೆಲಸದಲ್ಲಿ ಗಾಯವಾದರೆ ಪರಿಹಾರವನ್ನು ಮಾಲೀಕರು ಕೊಡಬೇಕು."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="13" width="36" height="27"/><path d="M18 13V7h12v6M24 20v13M17.5 26.5h13"/></svg></div><strong>Hurt at work? The employer must pay compensation<span class="hi" lang="hi">काम पर चोट लगी? मुआवज़ा मालिक देगा</span></strong><a class="more noread" href="rights.html#construction">More</a></li>
+      <li data-say-bn="কাজের জায়গায় হয়রানির অভিযোগ করা যায়, বাড়ির ভেতরেও।" data-say-mr="कामाच्या जागी छळाची तक्रार करता येते, घरातसुद्धा." data-say-ta="வேலை இடத்தில் தொல்லை பற்றி புகார் கொடுக்கலாம், வீட்டுக்குள்ளும்." data-say-te="పని చోట వేధింపుల గురించి ఫిర్యాదు చేయవచ్చు, ఇంటి లోపల కూడా." data-say-kn="ಕೆಲಸದ ಜಾಗದಲ್ಲಿ ಕಿರುಕುಳದ ಬಗ್ಗೆ ದೂರು ನೀಡಬಹುದು, ಮನೆಯೊಳಗೂ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 27V12a3 3 0 0 1 6 0v10M22 22V8a3 3 0 0 1 6 0v14M28 22V10a3 3 0 0 1 6 0v16M34 19a3 3 0 0 1 6 0v9c0 9-6 16-14 16-6 0-10-3-13-9l-4-8a3 3 0 0 1 5-3l2 4"/></svg></div><strong>Harassment at work can be reported, even inside a home<span class="hi" lang="hi">काम पर उत्पीड़न की शिकायत हो सकती है, घर के अंदर भी</span></strong><a class="more noread" href="rights.html#domestic">More</a></li>
+      <li class="no" data-say-bn="ধারের বদলে কেউ জোর করে কাজ করাতে পারে না।" data-say-mr="कर्जाच्या बदल्यात कोणीही जबरदस्तीने काम करून घेऊ शकत नाही." data-say-ta="கடனுக்காக யாரும் கட்டாயப்படுத்தி வேலை வாங்க முடியாது." data-say-te="అప్పు కోసం ఎవరూ బలవంతంగా పని చేయించలేరు." data-say-kn="ಸಾಲಕ್ಕಾಗಿ ಯಾರೂ ಬಲವಂತವಾಗಿ ಕೆಲಸ ಮಾಡಿಸುವಂತಿಲ್ಲ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 31l6-6a5 5 0 0 1 7 7l-6 6a5 5 0 0 1-7-7z"/><path d="M28 16l6-6a5 5 0 0 1 7 7l-6 6a5 5 0 0 1-7-7z"/><path d="M21 21l-3-3M27 27l3 3M24 18v-4M30 24h4"/></svg></div><strong>No one can force you to work to pay off a loan<span class="hi" lang="hi">कर्ज़ के बदले कोई ज़बरदस्ती काम नहीं करवा सकता</span></strong><a class="more noread" href="help.html">More</a></li>
+      <li class="no" data-say-bn="আসল আধার বা কাগজপত্র মালিককে দেবেন না।" data-say-mr="मूळ आधार किंवा कागदपत्रे मालकाला देऊ नका." data-say-ta="அசல் ஆதார் அல்லது ஆவணங்களை முதலாளியிடம் கொடுக்காதீர்கள்." data-say-te="అసలు ఆధార్ లేదా పత్రాలు యజమానికి ఇవ్వకండి." data-say-kn="ಮೂಲ ಆಧಾರ್ ಅಥವಾ ದಾಖಲೆಗಳನ್ನು ಮಾಲೀಕರಿಗೆ ಕೊಡಬೇಡಿ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="10" width="40" height="28"/><circle cx="15" cy="21" r="4"/><path d="M8 32a7 6 0 0 1 14 0M27 19h11M27 25h8"/></svg></div><strong>Never give your original Aadhaar or documents to the employer<span class="hi" lang="hi">अपना असली आधार या कागज़ मालिक को न दें</span></strong><a class="more noread" href="before-job.html">More</a></li>
+      <li class="no" data-say-bn="14 বছরের কম বয়সী শিশুকে দিয়ে কাজ করানো নিষেধ।" data-say-mr="14 वर्षांखालील मुलांकडून काम करून घेणे मनाई आहे." data-say-ta="14 வயதுக்குக் குறைவான குழந்தைகளை வேலை செய்ய வைப்பது தடை." data-say-te="14 ఏళ్ల లోపు పిల్లలతో పని చేయించడం నిషేధం." data-say-kn="14 ವರ್ಷದೊಳಗಿನ ಮಕ್ಕಳಿಂದ ಕೆಲಸ ಮಾಡಿಸುವುದು ನಿಷೇಧ."><div class="pic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="12" r="5"/><path d="M17 42V27a7 7 0 0 1 14 0v15"/><path d="M6 6l36 36"/></svg></div><strong>Children under 14 must not be made to work<span class="hi" lang="hi">14 साल से कम उम्र के बच्चे से काम करवाना मना है</span></strong><a class="more noread" href="help.html">More</a></li>
+    </ul>
+
+    <p><a href="rights.html">Read the full rights page</a> &nbsp;·&nbsp; <a href="show.html">Show a message to an officer</a></p>
+
+    </div>
+    <aside class="sidebar noprint" aria-label="Listen and get help">
+      <div class="side-card side-listen">
+        <button type="button" class="bigsay side-say" data-read="page" aria-label="Listen to this page"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18h8l10-8v28l-10-8H6z"/><path d="M31 17a10 10 0 0 1 0 14M36 12a17 17 0 0 1 0 24"/></svg><span>Listen to this page<span class="hi" lang="hi">यह पन्ना सुनें</span></span></button>
+        <p class="side-label">Voice language · आवाज़ की भाषा</p>
+        <div class="langrow" aria-label="Choose your language"></div>
+      </div>
+      <div class="side-card side-help">
+        <p class="side-title"><strong>Need help now?</strong><span class="hi" lang="hi">अभी मदद चाहिए?</span></p>
+        <a class="callbtn" href="tel:15100"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span>15100<small>Free legal help · मुफ़्त कानूनी मदद</small></span></a>
+        <a class="callbtn red" href="tel:112"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 5L45 41H3z"/><path d="M24 18v11M24 34v1"/></svg><span>112<small>Danger · खतरा</small></span></a>
+      </div>
+      <a class="side-card side-ask" href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span><strong>Ask a question</strong><span class="hi" lang="hi">बोलकर सवाल पूछें</span><span class="desc">Speak in your language and hear the answer.</span></span></a>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-name"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect width="48" height="48" fill="#b5832a"/><text x="24" y="31.5" text-anchor="middle" font-size="19" font-weight="800" font-family="Mukta, &apos;Noto Sans Devanagari&apos;, &apos;Kohinoor Devanagari&apos;, sans-serif" fill="#1d1f20">श्रम</text></svg><span>SHRAM STAMBH <small lang="hi">श्रम स्तंभ</small></span></p>
+      <p>Information for daily-wage, construction, domestic and factory workers in India.</p>
+      <p class="muted">This site gives general information, not legal advice. Rules and minimum wages are different in every state. Use it to know what to ask, then confirm with your district labour office or free legal aid on 15100.</p>
+      <p class="muted" lang="hi">यह सामान्य जानकारी है, कानूनी सलाह नहीं। हर राज्य के नियम और न्यूनतम मज़दूरी अलग हैं। पक्की जानकारी के लिए ज़िला श्रम कार्यालय या 15100 पर बात करें।</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rights.html">Your rights</a></li>
+      <li><a href="pictures.html">Rights in pictures</a></li>
+      <li><a href="wages.html">Not paid?</a></li>
+      <li><a href="diary.html">Work diary</a></li>
+      <li><a href="before-job.html">Before a job</a></li>
+      <li><a href="show.html">Show this screen</a></li>
+      <li><a href="ask.html">Ask a question</a></li>
+      <li><a href="help.html">Helplines</a></li>
+      <li><a href="login.html">Log in</a></li>
+      <li><a href="https://wa.me/?text=SHRAM%20STAMBH%20%28%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE%20%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A4%82%E0%A4%AD%29%3A%20free%20information%20for%20workers%20on%20wages%20and%20rights%2C%20in%20English%20and%20Hindi%2C%20with%20read-aloud.%20%E0%A4%AE%E0%A4%9C%E0%A4%BC%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%87%20%E0%A4%85%E0%A4%A7%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%B0%20%E0%A4%94%E0%A4%B0%20%E0%A4%AE%E0%A4%9C%E0%A4%BC%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%80%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%2C%20%E0%A4%B8%E0%A5%81%E0%A4%A8%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BF%E0%A4%A7%E0%A4%BE%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%E0%A5%A4">Send this site on WhatsApp</a></li>
+    </ul>
+    <p class="foot-small">No tracking. Your account, name and mobile number stay on this phone and are never sent anywhere. We never ask for Aadhaar. &nbsp;·&nbsp; Last checked: November 2026</p>
+  </div>
+</footer>
+
+<nav class="bottombar noprint" aria-label="Quick help">
+  <ul>
+    <li><a href="tel:15100"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span><b>15100</b>Free help · मदद</span></a></li>
+    <li><a class="sos" href="tel:112"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 5L45 41H3z"/><path d="M24 18v11M24 34v1"/></svg><span><b>112</b>Danger · खतरा</span></a></li>
+    <li><a class="askbtn" href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span><b>Ask</b>सवाल पूछें</span></a></li>
+    <li id="listen-slot"><a href="help.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="14" r="4"/><circle cx="24" cy="11" r="5"/><circle cx="36" cy="14" r="4"/><path d="M4 38v-8a8 8 0 0 1 12-6M44 38v-8a8 8 0 0 0-12-6M16 40V28a8 8 0 0 1 16 0v12"/></svg><span><b>Help</b>मदद लें</span></a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

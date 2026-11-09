@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your rights at work | SHRAM STAMBH</title>
+  <meta name="description" content="Rights of construction, domestic, factory and migrant workers in India, in plain English and Hindi.">
+  <meta name="theme-color" content="#2e3336">
+  <meta property="og:site_name" content="SHRAM STAMBH · श्रम स्तंभ">
+  <meta property="og:title" content="Your rights at work | SHRAM STAMBH">
+  <meta property="og:description" content="Rights of construction, domestic, factory and migrant workers in India, in plain English and Hindi.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=36">
+  <script>
+  (function () {
+    function check() {
+      var ok = false;
+      try {
+        var id = JSON.parse(sessionStorage.getItem('ss-session') || 'null');
+        var last = JSON.parse(sessionStorage.getItem('ss-last') || '0');
+        var list = JSON.parse(localStorage.getItem('ss-profiles') || '[]');
+        var fresh = !last || Date.now() - last < 30 * 60 * 1000;   /* 30 minutes unused logs out */
+        ok = !!id && fresh && list.some(function (p) { return p.id === id; });
+      } catch (e) {}
+      if (!ok) {
+        document.documentElement.style.display = 'none';
+        var here = location.pathname.split('/').pop() || 'index.html';
+        location.replace('login.html?next=' + encodeURIComponent(here + location.hash));
+      }
+    }
+    check();
+    /* the Back button can show a saved copy of the page: check again */
+    window.addEventListener('pageshow', function (e) { if (e.persisted) check(); });
+  })();
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="audio-manifest.js?v=36" defer></script>
+  <script src="lang-data.js?v=36" defer></script>
+  <script src="account-data.js?v=36" defer></script>
+  <script src="speak.js?v=36" defer></script>
+  <script src="account.js?v=36" defer></script>
+  <script src="site.js?v=36" defer></script>
+</head>
+<body class="t-rights">
+<a class="skip" href="#content">Skip to content</a>
+<noscript>
+  <div class="nojs-box">
+    <p><strong>This site needs JavaScript to log in and to speak.</strong> Please turn JavaScript on, or open the site in Chrome.</p>
+    <p lang="hi">लॉग इन और आवाज़ के लिए JavaScript चाहिए। कृपया उसे चालू करें या Chrome में खोलें।</p>
+    <p>For help now · अभी मदद के लिए:</p>
+    <a class="callbtn" href="tel:15100">15100<small>Free legal help · मुफ़्त कानूनी मदद</small></a>
+    <a class="callbtn red" href="tel:112">112<small>Danger · खतरा</small></a>
+  </div>
+</noscript>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brandrow">
+      <p class="site-name"><a href="index.html"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect width="48" height="48" fill="#b5832a"/><text x="24" y="31.5" text-anchor="middle" font-size="19" font-weight="800" font-family="Mukta, &apos;Noto Sans Devanagari&apos;, &apos;Kohinoor Devanagari&apos;, sans-serif" fill="#1d1f20">श्रम</text></svg><span>SHRAM STAMBH <small lang="hi">श्रम स्तंभ</small></span></a></p>
+      <div class="head-tools">
+        <span id="voice-slot"></span>
+        <div class="account" id="account-slot"><a class="account-link" href="login.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="21" width="30" height="23"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><path d="M24 30v6"/></svg><span>Log in<span class="hi" lang="hi">लॉग इन</span></span></a></div>
+      </div>
+    </div>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li class=""><a href="index.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22L24 8l18 14"/><path d="M11 19v21h26V19"/></svg><span>Home<span class="hi" lang="hi">मुख्य पन्ना</span></span></a></li>
+        <li class="t-rights"><a href="rights.html" aria-current="page"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 6v34M14 42h20M8 14h32"/><path d="M12 14L6 27a6 4 0 0 0 12 0z"/><path d="M36 14l-6 13a6 4 0 0 0 12 0z"/></svg><span>Your rights<span class="hi" lang="hi">आपके अधिकार</span></span></a></li>
+        <li class="t-wages"><a href="wages.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="12" width="40" height="24"/><path d="M19 18h10M19 22h10M22 18c5 0 5 8 0 8h-3l8 5"/></svg><span>Not paid?<span class="hi" lang="hi">पैसा नहीं मिला?</span></span></a></li>
+        <li class="t-wages"><a href="diary.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="32"/><path d="M6 18h36M15 5v8M33 5v8"/><path d="M15 28l5 5 10-10"/></svg><span>Work diary<span class="hi" lang="hi">काम का हिसाब</span></span></a></li>
+        <li class="t-job"><a href="before-job.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34"/><path d="M18 11V5h12v6z"/><path d="M17 26l5 5 9-10"/></svg><span>Before a job<span class="hi" lang="hi">काम से पहले</span></span></a></li>
+        <li class="t-help"><a href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span>Ask<span class="hi" lang="hi">सवाल पूछें</span></span></a></li>
+        <li class="t-help"><a href="help.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span>Get help<span class="hi" lang="hi">मदद लें</span></span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="wrap layout">
+    <div class="content">
+
+    <p class="crumbs"><a href="index.html">Home</a> / Your rights</p>
+    <div class="pagehead t-rights"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 6v34M14 42h20M8 14h32"/><path d="M12 14L6 27a6 4 0 0 0 12 0z"/><path d="M36 14l-6 13a6 4 0 0 0 12 0z"/></svg><h1>Your rights at work<span class="hi" lang="hi">काम पर आपके अधिकार</span></h1></div>
+    <p class="lead">These rights come from India's labour codes and apply whether or not you have anything in writing. A verbal deal is still a deal.<span class="hi" lang="hi">ये अधिकार भारत के श्रम कानूनों से आते हैं। लिखित कागज़ न हो तब भी लागू हैं। ज़ुबानी सौदा भी सौदा है।</span></p>
+    <p><a href="pictures.html">See the main rights as pictures, with sound</a><span class="hi" lang="hi">मुख्य अधिकार तस्वीरों में, आवाज़ के साथ</span></p>
+
+    <ul class="jump" aria-label="Jump to your type of work">
+      <li><a href="#construction"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 32a16 15 0 0 1 32 0"/><path d="M4 32h40v5H4z"/><path d="M20 18v-6h8v6"/></svg><span>Construction<span class="hi" lang="hi">निर्माण / बिल्डिंग</span></span></a></li>
+      <li><a href="#domestic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22L24 8l18 14"/><path d="M10 19v21h28V19"/><path d="M20 40V28h8v12"/></svg><span>Domestic work<span class="hi" lang="hi">घरेलू काम</span></span></a></li>
+      <li><a href="#factory"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 42V22l10 6v-6l10 6v-6l10 6V8h8v34z"/><path d="M10 35h4M20 35h4M30 35h4"/></svg><span>Factory<span class="hi" lang="hi">फ़ैक्ट्री</span></span></a></li>
+      <li><a href="#migrant"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="6" width="32" height="30"/><path d="M8 22h32M14 36v5M34 36v5"/><path d="M15 29h2M31 29h2"/></svg><span>From another state<span class="hi" lang="hi">दूसरे राज्य से</span></span></a></li>
+    </ul>
+
+    <div class="panel t-rights">
+      <h2>Rights every worker has<span class="hi" lang="hi">हर मज़दूर के अधिकार</span></h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th style="width:28%">Right</th><th>What it means for you</th></tr></thead>
+          <tbody>
+<tr><td><strong>Minimum wage</strong><span class="hi" lang="hi">न्यूनतम मज़दूरी</span></td><td>Every job must pay at least the minimum wage set by your state. This includes domestic work and daily-wage work. Being new or a helper does not change this.<span class="hi" lang="hi">हर काम में कम से कम राज्य की तय न्यूनतम मज़दूरी मिलनी चाहिए। घरेलू काम और दिहाड़ी भी इसमें आते हैं। नया या हेल्पर होने से यह नहीं बदलता।</span></td></tr>
+<tr><td><strong>Paid on time</strong><span class="hi" lang="hi">समय पर भुगतान</span></td><td>Daily wage: at the end of the shift. Weekly: on the last working day of the week. Monthly: before the 7th of the next month.<span class="hi" lang="hi">दिहाड़ी: उसी दिन शिफ़्ट खत्म होने पर। हफ़्तेवार: हफ़्ते के आखिरी कामकाजी दिन। महीनेवार: अगले महीने की 7 तारीख से पहले।</span></td></tr>
+<tr><td><strong>No unfair cuts</strong><span class="hi" lang="hi">गलत कटौती नहीं</span></td><td>Pay can only be cut for reasons the law allows, such as PF or an advance you took. All cuts together cannot be more than half your pay.<span class="hi" lang="hi">पैसा सिर्फ़ कानूनी कारणों से कट सकता है, जैसे PF या लिया हुआ एडवांस। कुल कटौती आधी मज़दूरी से ज़्यादा नहीं हो सकती।</span></td></tr>
+<tr><td><strong>Overtime</strong><span class="hi" lang="hi">ओवरटाइम</span></td><td>Work beyond your normal hours must be paid at least double the normal rate.<span class="hi" lang="hi">तय घंटों से ज़्यादा काम का कम से कम दोगुना पैसा मिलना चाहिए।</span></td></tr>
+<tr><td><strong>Hours and rest</strong><span class="hi" lang="hi">घंटे और आराम</span></td><td>Normally up to 8 hours a day with a break, and one day off every week.<span class="hi" lang="hi">आम तौर पर दिन में 8 घंटे तक, बीच में आराम, और हफ़्ते में एक दिन छुट्टी।</span></td></tr>
+<tr><td><strong>Equal pay</strong><span class="hi" lang="hi">बराबर वेतन</span></td><td>Women and men doing the same work must get the same pay.<span class="hi" lang="hi">एक जैसे काम के लिए औरत और आदमी को बराबर पैसा।</span></td></tr>
+<tr><td><strong>Written proof of the job</strong><span class="hi" lang="hi">काम का लिखित सबूत</span></td><td>In most workplaces the employer must give you an appointment letter with your job, wage and start date, and a wage slip.<span class="hi" lang="hi">ज़्यादातर जगहों पर नियोक्ता को नियुक्ति पत्र और वेतन पर्ची देनी होती है।</span></td></tr>
+<tr><td><strong>Free to leave</strong><span class="hi" lang="hi">छोड़ने की आज़ादी</span></td><td>Nobody can force you to keep working to repay an advance, or keep your documents to stop you leaving. That is bonded labour and it is a crime.<span class="hi" lang="hi">एडवांस चुकाने के लिए ज़बरदस्ती काम करवाना या कागज़ रखकर रोकना बंधुआ मज़दूरी है। यह अपराध है।</span></td></tr>
+<tr><td><strong>Safety and injury</strong><span class="hi" lang="hi">सुरक्षा और चोट</span></td><td>Safety gear such as a helmet, gloves and harness must be given free. If you are hurt at work, the employer is responsible for compensation.<span class="hi" lang="hi">हेलमेट, दस्ताने, बेल्ट मुफ़्त मिलने चाहिए। काम पर चोट लगे तो मुआवज़ा नियोक्ता की ज़िम्मेदारी है।</span></td></tr>
+<tr><td><strong>Respect</strong><span class="hi" lang="hi">इज़्ज़त</span></td><td>Sexual harassment at any workplace, including inside someone's home, can be reported.<span class="hi" lang="hi">किसी भी काम की जगह पर, किसी के घर के अंदर भी, यौन उत्पीड़न की शिकायत हो सकती है।</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">Minimum wage amounts change every few months and differ by state and skill level. Ask your district labour office or call 14434 for the current rate.</p>
+    </div>
+
+    <div class="panel" id="construction">
+      <h2>Construction workers<span class="hi" lang="hi">निर्माण मज़दूर</span></h2>
+      <details open>
+        <summary>Register with the construction workers welfare board<span class="hi" lang="hi">निर्माण मज़दूर कल्याण बोर्ड में पंजीकरण</span></summary>
+        <div>
+          <p>Every state has a Building and Other Construction Workers Welfare Board. You can usually register if you are 18 to 60 years old and did construction work for at least 90 days in the last year.<span class="hi" lang="hi">हर राज्य में निर्माण मज़दूर कल्याण बोर्ड है। 18 से 60 साल के और पिछले साल में 90 दिन काम किया हो तो पंजीकरण हो सकता है।</span></p>
+          <p>Benefits depend on the state but often include accident help, money for children's education, maternity help, tools and a pension.<span class="hi" lang="hi">फ़ायदे राज्य के हिसाब से हैं: दुर्घटना मदद, बच्चों की पढ़ाई, प्रसव मदद, औज़ार, पेंशन।</span></p>
+          <p>Ask at the district labour office. A contractor's certificate or other workers' word is usually enough as proof of 90 days.</p>
+        </div>
+      </details>
+      <details>
+        <summary>The contractor ran away or is not paying<span class="hi" lang="hi">ठेकेदार भाग गया या पैसा नहीं दे रहा</span></summary>
+        <div>
+          <p>The builder or company that hired the contractor is responsible for making sure you get paid. Go to the site office and ask for the main company's name. Then follow the steps on the <a href="wages.html">Not paid</a> page.<span class="hi" lang="hi">जिस बिल्डर या कंपनी ने ठेकेदार रखा, उसकी ज़िम्मेदारी है कि आपको पैसा मिले।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>What the site must have<span class="hi" lang="hi">साइट पर क्या होना चाहिए</span></summary>
+        <div>
+          <ul>
+            <li>Clean drinking water, toilets and first aid<span class="hi" lang="hi">पीने का पानी, शौचालय, प्राथमिक उपचार</span></li>
+            <li>Free helmet, shoes, gloves, and a safety harness for work at height<span class="hi" lang="hi">मुफ़्त हेलमेट, जूते, दस्ताने और ऊँचाई पर काम के लिए सेफ़्टी बेल्ट</span></li>
+            <li>A place to rest and eat, and a creche on large sites where women work<span class="hi" lang="hi">आराम और खाने की जगह, बड़ी साइट पर बच्चों के लिए पालना घर</span></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Someone got hurt on site<span class="hi" lang="hi">साइट पर किसी को चोट लगी</span></summary>
+        <div>
+          <ol>
+            <li>Get treatment first. Keep every bill and the hospital paper.<span class="hi" lang="hi">पहले इलाज करवाएँ। हर बिल और अस्पताल का कागज़ संभालकर रखें।</span></li>
+            <li>Take photos of the place and write down the site name and address.<span class="hi" lang="hi">जगह की फ़ोटो लें, साइट का नाम और पता लिखें।</span></li>
+            <li>Get names and numbers of workers who saw it.<span class="hi" lang="hi">जिन्होंने देखा, उनके नाम और नंबर लें।</span></li>
+            <li>Report it to the labour office and call 15100. Do not sign any paper that says you will not claim.<span class="hi" lang="hi">श्रम कार्यालय को बताएँ और 15100 पर फ़ोन करें। ‘दावा नहीं करूँगा’ वाले किसी कागज़ पर साइन न करें।</span></li>
+          </ol>
+        </div>
+      </details>
+    </div>
+
+    <div class="panel" id="domestic">
+      <h2>Domestic workers<span class="hi" lang="hi">घरेलू कामगार</span></h2>
+      <details open>
+        <summary>Minimum wage applies to you too<span class="hi" lang="hi">न्यूनतम मज़दूरी आप पर भी लागू है</span></summary>
+        <div>
+          <p>The Code on Wages covers all workers, including people who cook, clean, look after children or the elderly in homes. Several states also set a separate rate for domestic work.<span class="hi" lang="hi">मज़दूरी संहिता हर कामगार पर लागू है, घर में खाना बनाने, सफ़ाई, बच्चों या बुज़ुर्गों की देखभाल करने वालों पर भी।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Agree on hours and day off before you start<span class="hi" lang="hi">शुरू करने से पहले घंटे और छुट्टी तय करें</span></summary>
+        <div>
+          <p>Rules on hours for domestic work are weak in most states, so your own agreement matters most. Fix the hours, the weekly day off, the salary date and paid leave. Use the job card on the <a href="before-job.html">Before a job</a> page.<span class="hi" lang="hi">ज़्यादातर राज्यों में घरेलू काम के घंटों के नियम कमज़ोर हैं, इसलिए पहले ही घंटे, साप्ताहिक छुट्टी और वेतन की तारीख तय करें।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Register on e-Shram<span class="hi" lang="hi">ई-श्रम पर पंजीकरण करें</span></summary>
+        <div>
+          <p>Registration is free on eshram.gov.in or by calling 14434. You get a card with a number that links you to government schemes for unorganised workers. Some states also have a welfare board for domestic workers. Ask at the district labour office.<span class="hi" lang="hi">eshram.gov.in पर या 14434 पर फ़ोन करके मुफ़्त पंजीकरण करें। इससे सरकारी योजनाओं से जुड़ते हैं।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Harassment or abuse in the house<span class="hi" lang="hi">घर में उत्पीड़न या मारपीट</span></summary>
+        <div>
+          <p>Sexual harassment of a domestic worker can be reported to the Local Committee in your district. You do not have to go to the police first. Call 181 for the women's helpline, or 112 if you are in danger now.<span class="hi" lang="hi">घरेलू कामगार के यौन उत्पीड़न की शिकायत ज़िले की स्थानीय समिति में कर सकती हैं। 181 महिला हेल्पलाइन, खतरा हो तो 112।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Accused of theft, or salary held back<span class="hi" lang="hi">चोरी का इल्ज़ाम या वेतन रोका गया</span></summary>
+        <div>
+          <p>An accusation does not give anyone the right to keep your salary. Do not sign or put your thumbprint on any paper you cannot read. Call 15100 for a free lawyer.<span class="hi" lang="hi">इल्ज़ाम लगने से किसी को आपका वेतन रोकने का हक़ नहीं मिलता। जो कागज़ पढ़ नहीं सकते उस पर साइन या अंगूठा न लगाएँ। 15100 पर मुफ़्त वकील।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Came through a placement agency<span class="hi" lang="hi">एजेंसी के ज़रिए काम मिला</span></summary>
+        <div>
+          <p>Get the agency's name, address, phone number and fee in writing. Do not let the agency collect your salary for you or keep your documents. Children under 14 cannot be employed in any home. Report it on 1098.<span class="hi" lang="hi">एजेंसी का नाम, पता, नंबर और फ़ीस लिखकर लें। एजेंसी को आपका वेतन या कागज़ न रखने दें। 14 साल से कम उम्र के बच्चे से घरेलू काम करवाना मना है: 1098।</span></p>
+        </div>
+      </details>
+    </div>
+
+    <div class="panel" id="factory">
+      <h2>Factory workers<span class="hi" lang="hi">फ़ैक्ट्री मज़दूर</span></h2>
+      <details open>
+        <summary>PF: check that your money is actually deposited<span class="hi" lang="hi">PF: जाँचें कि पैसा सच में जमा हो रहा है</span></summary>
+        <div>
+          <p>If the factory has 20 or more workers, PF must be cut from your pay and deposited with EPFO along with the employer's share. If it is cut but not deposited, that is a serious offence.<span class="hi" lang="hi">20 या ज़्यादा मज़दूर हों तो PF कटकर EPFO में जमा होना चाहिए। कटे पर जमा न हो तो यह गंभीर अपराध है।</span></p>
+          <p>To check your balance, give a missed call to <a href="tel:9966044425">99660 44425</a> from the phone number linked to your UAN. For help, call EPFO on <a href="tel:1800118005">1800-118-005</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary>ESI card for free treatment<span class="hi" lang="hi">मुफ़्त इलाज के लिए ESI कार्ड</span></summary>
+        <div>
+          <p>If the factory has 10 or more workers and you earn up to ₹21,000 a month, you should be covered by ESI. That means free treatment for you and your family, and cash help when you are sick or injured.<span class="hi" lang="hi">10 या ज़्यादा मज़दूर हों और आपकी कमाई ₹21,000 महीना तक हो, तो ESI मिलना चाहिए: आपके और परिवार के लिए मुफ़्त इलाज।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Wage slip, overtime and night shifts<span class="hi" lang="hi">वेतन पर्ची, ओवरटाइम और रात की शिफ़्ट</span></summary>
+        <div>
+          <ul>
+            <li>You should get a wage slip showing days worked, overtime and every cut.<span class="hi" lang="hi">आपको वेतन पर्ची मिलनी चाहिए जिसमें दिन, ओवरटाइम और हर कटौती लिखी हो।</span></li>
+            <li>Overtime is paid at double the normal rate.<span class="hi" lang="hi">ओवरटाइम का दोगुना पैसा।</span></li>
+            <li>Women can work night shifts only if they agree, and the employer must arrange safety and transport.<span class="hi" lang="hi">महिलाएँ रात की शिफ़्ट सिर्फ़ अपनी मर्ज़ी से करेंगी, और सुरक्षा व आने-जाने का इंतज़ाम नियोक्ता का।</span></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Hired through a contractor or agency<span class="hi" lang="hi">ठेकेदार या एजेंसी के ज़रिए रखा गया</span></summary>
+        <div>
+          <p>The factory is still responsible for making sure you get your wages, PF and ESI. Write down the contractor's name and the factory's name.<span class="hi" lang="hi">फ़ैक्ट्री की भी ज़िम्मेदारी है कि आपको वेतन, PF और ESI मिले।</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Leaving after many years<span class="hi" lang="hi">कई साल बाद काम छोड़ना</span></summary>
+        <div>
+          <p>After 5 years with the same employer you are owed gratuity when you leave. For fixed-term workers it is after 1 year.<span class="hi" lang="hi">एक ही नियोक्ता के यहाँ 5 साल बाद छोड़ने पर ग्रेच्युटी मिलती है। तय अवधि वाले कर्मचारी को 1 साल बाद।</span></p>
+        </div>
+      </details>
+    </div>
+
+    <div class="panel" id="migrant">
+      <h2>If you came from another state<span class="hi" lang="hi">अगर आप दूसरे राज्य से आए हैं</span></h2>
+      <ul>
+        <li><strong>Ration:</strong> your ration card works in any state under One Nation One Ration Card. Ask at any ration shop.<span class="hi" lang="hi">राशन: ‘एक देश एक राशन कार्ड’ से किसी भी राज्य में राशन ले सकते हैं।</span></li>
+        <li><strong>e-Shram:</strong> register once and it stays valid wherever you work.<span class="hi" lang="hi">ई-श्रम: एक बार पंजीकरण, हर जगह मान्य।</span></li>
+        <li><strong>Travel home:</strong> in many workplaces, workers from other states are owed a yearly travel allowance to visit home.<span class="hi" lang="hi">घर जाने का किराया: कई जगहों पर दूसरे राज्य के मज़दूरों को साल में एक बार घर जाने का किराया मिलता है।</span></li>
+        <li><strong>Same rights:</strong> everything on this page applies to you. Being from outside does not reduce your wage.<span class="hi" lang="hi">बराबर अधिकार: बाहर से होने से आपकी मज़दूरी कम नहीं होती।</span></li>
+      </ul>
+    </div>
+
+    </div>
+    <aside class="sidebar noprint" aria-label="Listen and get help">
+      <div class="side-card side-listen">
+        <button type="button" class="bigsay side-say" data-read="page" aria-label="Listen to this page"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18h8l10-8v28l-10-8H6z"/><path d="M31 17a10 10 0 0 1 0 14M36 12a17 17 0 0 1 0 24"/></svg><span>Listen to this page<span class="hi" lang="hi">यह पन्ना सुनें</span></span></button>
+        <p class="side-label">Voice language · आवाज़ की भाषा</p>
+        <div class="langrow" aria-label="Choose your language"></div>
+      </div>
+      <div class="side-card side-help">
+        <p class="side-title"><strong>Need help now?</strong><span class="hi" lang="hi">अभी मदद चाहिए?</span></p>
+        <a class="callbtn" href="tel:15100"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span>15100<small>Free legal help · मुफ़्त कानूनी मदद</small></span></a>
+        <a class="callbtn red" href="tel:112"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 5L45 41H3z"/><path d="M24 18v11M24 34v1"/></svg><span>112<small>Danger · खतरा</small></span></a>
+      </div>
+      <a class="side-card side-ask" href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span><strong>Ask a question</strong><span class="hi" lang="hi">बोलकर सवाल पूछें</span><span class="desc">Speak in your language and hear the answer.</span></span></a>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-name"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect width="48" height="48" fill="#b5832a"/><text x="24" y="31.5" text-anchor="middle" font-size="19" font-weight="800" font-family="Mukta, &apos;Noto Sans Devanagari&apos;, &apos;Kohinoor Devanagari&apos;, sans-serif" fill="#1d1f20">श्रम</text></svg><span>SHRAM STAMBH <small lang="hi">श्रम स्तंभ</small></span></p>
+      <p>Information for daily-wage, construction, domestic and factory workers in India.</p>
+      <p class="muted">This site gives general information, not legal advice. Rules and minimum wages are different in every state. Use it to know what to ask, then confirm with your district labour office or free legal aid on 15100.</p>
+      <p class="muted" lang="hi">यह सामान्य जानकारी है, कानूनी सलाह नहीं। हर राज्य के नियम और न्यूनतम मज़दूरी अलग हैं। पक्की जानकारी के लिए ज़िला श्रम कार्यालय या 15100 पर बात करें।</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rights.html">Your rights</a></li>
+      <li><a href="pictures.html">Rights in pictures</a></li>
+      <li><a href="wages.html">Not paid?</a></li>
+      <li><a href="diary.html">Work diary</a></li>
+      <li><a href="before-job.html">Before a job</a></li>
+      <li><a href="show.html">Show this screen</a></li>
+      <li><a href="ask.html">Ask a question</a></li>
+      <li><a href="help.html">Helplines</a></li>
+      <li><a href="login.html">Log in</a></li>
+      <li><a href="https://wa.me/?text=SHRAM%20STAMBH%20%28%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE%20%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A4%82%E0%A4%AD%29%3A%20free%20information%20for%20workers%20on%20wages%20and%20rights%2C%20in%20English%20and%20Hindi%2C%20with%20read-aloud.%20%E0%A4%AE%E0%A4%9C%E0%A4%BC%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%87%20%E0%A4%85%E0%A4%A7%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%B0%20%E0%A4%94%E0%A4%B0%20%E0%A4%AE%E0%A4%9C%E0%A4%BC%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%80%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%2C%20%E0%A4%B8%E0%A5%81%E0%A4%A8%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BF%E0%A4%A7%E0%A4%BE%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%E0%A5%A4">Send this site on WhatsApp</a></li>
+    </ul>
+    <p class="foot-small">No tracking. Your account, name and mobile number stay on this phone and are never sent anywhere. We never ask for Aadhaar. &nbsp;·&nbsp; Last checked: November 2026</p>
+  </div>
+</footer>
+
+<nav class="bottombar noprint" aria-label="Quick help">
+  <ul>
+    <li><a href="tel:15100"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 6h-4a4 4 0 0 0-4 4c0 18 14 32 32 32a4 4 0 0 0 4-4v-4l-8-4-4 4c-6-3-9-6-12-12l4-4-4-8z"/></svg><span><b>15100</b>Free help · मदद</span></a></li>
+    <li><a class="sos" href="tel:112"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 5L45 41H3z"/><path d="M24 18v11M24 34v1"/></svg><span><b>112</b>Danger · खतरा</span></a></li>
+    <li><a class="askbtn" href="ask.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="17" y="4" width="14" height="25" rx="7"/><path d="M10 22a14 14 0 0 0 28 0M24 36v7M16 43h16"/></svg><span><b>Ask</b>सवाल पूछें</span></a></li>
+    <li id="listen-slot"><a href="help.html"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="14" r="4"/><circle cx="24" cy="11" r="5"/><circle cx="36" cy="14" r="4"/><path d="M4 38v-8a8 8 0 0 1 12-6M44 38v-8a8 8 0 0 0-12-6M16 40V28a8 8 0 0 1 16 0v12"/></svg><span><b>Help</b>मदद लें</span></a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

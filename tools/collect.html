@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Collect spoken lines</title>
+<body style="font:16px Arial;padding:20px">
+<p>Collecting every spoken line from each page… keep this tab open.</p>
+<pre id="log"></pre>
+<script>
+/* Loads each page in a hidden frame, asks speak.js for every sentence it can say,
+   and sends the list to tools/collect_server.py (port 8124). */
+(async function () {
+  var pages = ['index.html', 'rights.html', 'pictures.html', 'wages.html', 'diary.html', 'before-job.html', 'show.html', 'ask.html', 'help.html', 'login.html', '404.html'];
+  var log = document.getElementById('log');
+  /* every page needs a login now: use a temporary account while collecting, then remove it */
+  var TEMP = 'ucollect';
+  var saved = localStorage.getItem('ss-profiles'), savedSession = sessionStorage.getItem('ss-session');
+  var list = JSON.parse(saved || '[]').filter(function (p) { return p.id !== TEMP; });
+  list.push({ id: TEMP, avatar: 'helmet', name: 'Collector', mobile: '9000000000', salt: 'x', hash: 'x', created: Date.now() });
+  localStorage.setItem('ss-profiles', JSON.stringify(list));
+  sessionStorage.setItem('ss-session', JSON.stringify(TEMP));
+  var all = [], seen = {};
+  for (var i = 0; i < pages.length; i++) {
+    var f = document.createElement('iframe');
+    f.style.cssText = 'width:1000px;height:800px;position:absolute;left:-9999px';
+    f.src = '/' + pages[i] + '?collect=' + Date.now();
+    document.body.appendChild(f);
+    await new Promise(function (r) { f.onload = r; });
+    await new Promise(function (r) { setTimeout(r, 400); });
+    var list = f.contentWindow.ssDebug.collect();
+    var added = 0;
+    list.forEach(function (x) { var k = x.lang + ':' + x.hash; if (!seen[k]) { seen[k] = 1; all.push(x); added++; } });
+    log.textContent += pages[i] + ': ' + added + ' new lines\n';
+    f.remove();
+  }
+  if (saved == null) localStorage.removeItem('ss-profiles'); else localStorage.setItem('ss-profiles', saved);
+  if (savedSession == null) sessionStorage.removeItem('ss-session'); else sessionStorage.setItem('ss-session', savedSession);
+  var r = await fetch('http://localhost:8124/collect', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(all) });
+  var j = await r.json();
+  log.textContent += '\nSaved ' + j.saved + ' lines to tools/collected.json\n';
+  document.title = 'DONE ' + j.saved;
+})().catch(function (e) { document.getElementById('log').textContent += '\nERROR: ' + e; document.title = 'ERROR'; });
+</script>
