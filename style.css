@@ -1287,6 +1287,10 @@ footer.site .foot-small { color: #3f4245; }
   body { background: #fff; padding-bottom: 0; }
   header.site, footer.site, .noprint, .callbox, .bottombar, button.say, .listen-intro,
   .sidebar, .head-tools, .langrow, .bigsay { display: none !important; }
+  /* section 3 shows these on screen with stronger selectors (html.js, html.can-speak),
+     so they need the same strength here, or print buttons end up on the printout */
+  html.js .noprint, html.can-speak .noprint,
+  html.can-speak .needs-speech, html.can-speak .listen-intro.needs-speech { display: none !important; }
   .layout { display: block; }
   .content { width: 100%; }
   .panel, .sheet { border: 1px solid #000; background: #fff; break-inside: avoid; }
