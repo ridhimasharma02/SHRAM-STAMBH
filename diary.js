@@ -187,6 +187,61 @@
     });
   }
 
+  /* ---------- send the month on WhatsApp, as written proof ---------- */
+
+  /* the dates of this month marked as worked, as day numbers */
+  function workedDates() {
+    var p = prefix(), full = [], half = [];
+    Object.keys(store.days).sort().forEach(function (k) {
+      if (k.indexOf(p) !== 0) return;
+      var day = parseInt(k.slice(8), 10);
+      if (store.days[k] === 'full') full.push(day);
+      else if (store.days[k] === 'half') half.push(day);
+    });
+    return { full: full, half: half };
+  }
+
+  /* a plain message in Hindi and English that an employer, helper or officer can read */
+  function summaryText() {
+    var s = sums(), dates = workedDates(), e = store.emp, p = prefix();
+    var month = MONTHS_HI[view.m] + ' ' + view.y + ' / ' + MONTHS_EN[view.m] + ' ' + view.y;
+    var pays = store.pays.filter(function (x) { return String(x.d).indexOf(p) === 0; })
+      .sort(function (a, b) { return a.d < b.d ? -1 : 1; })
+      .map(function (x) { return parseInt(x.d.slice(8), 10) + ' ' + MONTHS_EN[view.m].slice(0, 3) + ': ' + rupees(x.a); });
+    var who = [e.name, e.phone, e.site].filter(Boolean).join(', ');
+    var lines = ['SHRAM STAMBH · काम का हिसाब / Work diary', 'महीना / Month: ' + month];
+    if (who) lines.push('मालिक / Employer: ' + who);
+    lines.push('रोज़ की मज़दूरी / Daily wage: ' + rupees(s.rate));
+    lines.push('पूरे दिन / Full days (' + dates.full.length + '): ' + (dates.full.join(', ') || '-'));
+    if (dates.half.length) lines.push('आधे दिन / Half days (' + dates.half.length + '): ' + dates.half.join(', '));
+    lines.push('कुल कमाई / Earned: ' + rupees(s.earned));
+    lines.push('मिला / Received: ' + rupees(s.paid) + (pays.length ? ' (' + pays.join('; ') + ')' : ''));
+    if (s.extra > 0) lines.push('ज़्यादा मिला (एडवांस?) / Received extra (advance?): ' + rupees(s.extra));
+    else lines.push('बाकी / Still owed: ' + rupees(s.owed));
+    return lines.join('\n');
+  }
+
+  var sendBtn = el('send-sum');
+  if (sendBtn) {
+    sendBtn.addEventListener('click', function () {
+      if (!(Number(store.rate) > 0)) {
+        var first = { hi: 'पहले ऊपर अपनी रोज़ की मज़दूरी लिखें।', en: 'First, write your daily wage at the top.' };
+        if (window.ssSpeak) window.ssSpeak(first, sendBtn);
+        if (window.ssToast) window.ssToast(first.en + ' · ' + first.hi);
+        rateIn.focus();
+        return;
+      }
+      /* a link click (not window.open) so WhatsApp opens reliably on phones */
+      var a = document.createElement('a');
+      a.href = 'https://wa.me/?text=' + encodeURIComponent(summaryText());
+      a.target = '_blank';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  }
+
   /* ---------- money received ---------- */
 
   var amtIn = el('pay-amt');

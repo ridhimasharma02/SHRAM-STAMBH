@@ -648,6 +648,7 @@ html.can-speak .showcard .big { padding-right: 52px; }
 }
 .btn { padding: 10px 16px; min-height: 50px; font-weight: 600; letter-spacing: 0.005em; }
 .btn.dark { background: var(--bar); color: #fff; border-color: #1d2022; }
+.btn.wa { background: var(--moss); color: #fff; border-color: #3e5036; margin-top: 8px; }
 .btn.small { min-height: 0; padding: 4px 10px; font-weight: normal; font-size: 0.85rem; }
 
 /* month name with < and > arrows */
