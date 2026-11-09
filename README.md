@@ -64,10 +64,11 @@ Millions of workers in India face the same four problems:
 - **Pictures and colours.** Every topic has its own picture and colour: yellow for money, blue for rights, green for a new job, red for help.
 - **Picture login.** There is no password. People tap their own picture, then four secret pictures.
 - **Call buttons everywhere.** Free legal help (15100) and emergency (112) are one tap away on every page, even before logging in.
+- **An icon on the home screen.** "Add to Home screen" in the phone's browser puts the logo on the home screen, so the site opens with one tap and no address to type.
 
 ### Getting paid
 - **Not paid?** ([wages.html](wages.html)) Six steps to recover unpaid wages, a message template to send the employer as written proof, and a printable work log.
-- **Work diary.** ([diary.html](diary.html)) Tap the days you worked, add money as you receive it, and the page works out what you are still owed. It can read the total aloud.
+- **Work diary.** ([diary.html](diary.html)) Tap the days you worked, add money as you receive it, and the page works out what you are still owed. It can read the total aloud, and **send the month on WhatsApp**: the dates worked, every payment and the amount still owed, in Hindi and English, as written proof for the employer or a helper.
 
 ### Knowing your rights
 - **Your rights.** ([rights.html](rights.html)) Rights for every worker, plus sections for construction, domestic, factory and migrant workers.
@@ -267,7 +268,7 @@ Everything a person saves stays in their own browser's `localStorage`. Each logg
 
 | What | Stored as |
 |---|---|
-| Work diary ([diary.js](diary.js)) | Daily rate, employer details, the days marked as worked, and each payment received. The page adds these up to show what is still owed. |
+| Work diary ([diary.js](diary.js)) | Daily rate, employer details, the days marked as worked, and each payment received. The page adds these up to show what is still owed. "Send on WhatsApp" turns the month into a plain message and opens WhatsApp with it; nothing is sent until the worker presses send there. |
 | Contractor notebook ([site.js](site.js)) | A list of contractors with a verdict: paid fully, paid late or less, or did not pay. Each can be shared to WhatsApp as a ready-made message. |
 
 ### How the scripts talk to each other
