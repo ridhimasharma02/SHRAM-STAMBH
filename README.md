@@ -317,6 +317,13 @@ SHRAM-STAMBH/
 │
 ├── audio/              592 voice clips (.m4a), one folder per language: hi en bn mr ta te kn
 ├── favicon.svg         The logo (fist, pillar and gear) on a dark tile
+├── icons/              Home-screen icons: 192px, 512px, maskable 512px, iPhone 180px
+├── manifest.json       Name, start page, colours and icons for "Add to Home screen"
+│
+├── _headers            Caching and safety headers, read by Netlify and Cloudflare Pages
+├── .nojekyll           Tells GitHub Pages to serve the files without processing them
+├── .github/            Issue forms: wrong facts, translations, bugs
+├── CHANGELOG.md        What changed in each version
 └── docs/screenshots/   Images used in this README
 ```
 
@@ -399,10 +406,12 @@ Edit the files directly. There is no build step.
 
 ## Putting it online
 
-Upload everything except the `docs/` folder to any static web host, such as GitHub Pages, Netlify or Cloudflare Pages.
+Upload everything except the `docs/` and `.github/` folders to any static web host, such as GitHub Pages, Netlify or Cloudflare Pages.
 
-- **Use HTTPS.** The microphone only works on secure addresses.
+- **Use HTTPS.** The microphone only works on secure addresses, and phones only offer "Add to Home screen" as an app on HTTPS.
 - **Set caching.** Pages, scripts and styles should be re-checked on every visit (`Cache-Control: no-cache`). The `audio/` folder can be cached for a long time, because a clip's name changes whenever its words change.
+  - **Netlify and Cloudflare Pages** read [`_headers`](_headers), which already does this for `audio/` and adds standard safety headers. Their default for other files is to re-check each visit.
+  - **GitHub Pages** can't set headers. [`.nojekyll`](.nojekyll) makes it serve the files exactly as they are.
 - `404.html` is used automatically by most hosts for wrong addresses.
 
 ## Accessibility
