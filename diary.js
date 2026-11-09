@@ -163,7 +163,9 @@
   }
 
   window.SS_PHRASES = window.SS_PHRASES || [];
-  window.SS_PHRASES.push({ hi: 'पहले ऊपर अपनी रोज़ की मज़दूरी लिखें।', en: 'First, write your daily wage at the top.' });
+  /* said when the daily wage is still empty */
+  var NEED_RATE = { hi: 'पहले ऊपर अपनी रोज़ की मज़दूरी लिखें।', en: 'First, write your daily wage at the top.' };
+  window.SS_PHRASES.push(NEED_RATE);
 
   var sayBtn = el('say-sum');
   if (sayBtn) {
@@ -172,7 +174,7 @@
       var s = sums();
       var mh = MONTHS_HI[view.m], me = MONTHS_EN[view.m];
       if (!s.rate) {
-        window.ssSpeak({ hi: 'पहले ऊपर अपनी रोज़ की मज़दूरी लिखें।', en: 'First, write your daily wage at the top.' }, sayBtn);
+        window.ssSpeak(NEED_RATE, sayBtn);
         return;
       }
       var dHi = s.full + ' पूरे दिन' + (s.half ? ' और ' + s.half + ' आधे दिन' : '');
@@ -225,9 +227,8 @@
   if (sendBtn) {
     sendBtn.addEventListener('click', function () {
       if (!(Number(store.rate) > 0)) {
-        var first = { hi: 'पहले ऊपर अपनी रोज़ की मज़दूरी लिखें।', en: 'First, write your daily wage at the top.' };
-        if (window.ssSpeak) window.ssSpeak(first, sendBtn);
-        if (window.ssToast) window.ssToast(first.en + ' · ' + first.hi);
+        if (window.ssSpeak) window.ssSpeak(NEED_RATE, sendBtn);
+        if (window.ssToast) window.ssToast(NEED_RATE.en + ' · ' + NEED_RATE.hi);
         rateIn.focus();
         return;
       }
