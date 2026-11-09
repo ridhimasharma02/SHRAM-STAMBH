@@ -2,6 +2,17 @@
 
 What changed in each version of SHRAM STAMBH. Downloads are on the [releases page](https://github.com/ridhimasharma02/SHRAM-STAMBH/releases).
 
+## Not released yet
+
+### Fixed
+- **Printouts.** "Print this log" and "Print the job card" no longer appear on their own printouts, and neither do the listen box or the diary's buttons. The print rules were weaker than the screen rules that show those elements.
+- **Diary on WhatsApp** no longer sends an empty month. With no days marked and nothing received, it asks (in recorded Hindi and English) for the days first.
+- **Footer share link** opens WhatsApp in a new tab instead of leaving the site.
+
+### Changed
+- The README explains how to run the site on localhost, with a Mac command that serves the voice clips as audio.
+- Two new voice clips (594 in all). Cache number raised to 40.
+
 ## 1.2 — 9 November 2026
 
 ### Added
