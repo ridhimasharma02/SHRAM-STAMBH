@@ -1,0 +1,16 @@
+{
+  "name": "SHRAM STAMBH · श्रम स्तंभ",
+  "short_name": "Shram Stambh",
+  "description": "Help for construction, domestic, factory and daily-wage workers in India: rights, unpaid wages, a work diary and voice help in seven languages.",
+  "lang": "en",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#dedbd5",
+  "theme_color": "#2e3336",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
