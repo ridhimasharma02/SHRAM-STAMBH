@@ -96,8 +96,8 @@ Millions of workers in India face the same four problems:
 
 | Language | Written on the pages | Spoken | Recorded clips |
 |---|---|---|---|
-| Hindi · हिंदी | ✓ every page | ✓ everything | 128 |
-| English | ✓ every page | ✓ everything | 139 |
+| Hindi · हिंदी | ✓ every page | ✓ everything | 129 |
+| English | ✓ every page | ✓ everything | 140 |
 | Bengali · বাংলা | – | home page, rights in pictures, Ask, login | 65 |
 | Marathi · मराठी | – | home page, rights in pictures, Ask, login | 65 |
 | Tamil · தமிழ் | – | home page, rights in pictures, Ask, login | 65 |
@@ -198,7 +198,7 @@ sequenceDiagram
    | 6 | `site.js` | Print buttons and the contractor notebook |
    | 7 | page's own script | `ask-data.js` + `ask.js` on the Ask page, `login.js` on the login page, `diary.js` on the diary page |
 
-3. **Cache busting.** Every CSS and JS link ends in `?v=39`. Raising the number makes phones fetch the new file instead of an old cached copy.
+3. **Cache busting.** Every CSS and JS link ends in `?v=40`. Raising the number makes phones fetch the new file instead of an old cached copy.
 4. **Without JavaScript**, the page lock can't run, so a CSS rule keeps the content hidden and a message with the 15100 and 112 call buttons shows instead.
 
 ### Login and the page lock
@@ -327,12 +327,12 @@ SHRAM-STAMBH/
 ├── diary.js            The work diary
 ├── site.js             Print buttons and the contractor notebook
 │
-├── audio-manifest.js   List of the 592 recorded clips
+├── audio-manifest.js   List of the 594 recorded clips
 ├── lang-data.js        Seven languages and shared spoken lines
 ├── ask-data.js         Ask topics, keywords, word groups and answers
 ├── account-data.js     Login text, 8 profile pictures, 9 secret pictures
 │
-├── audio/              592 voice clips (.m4a), one folder per language: hi en bn mr ta te kn
+├── audio/              594 voice clips (.m4a), one folder per language: hi en bn mr ta te kn
 ├── favicon.svg         The logo (fist, pillar and gear) on a dark tile
 ├── icons/              Home-screen icons: 192px, 512px, maskable 512px, iPhone 180px
 ├── manifest.json       Name, start page, colours and icons for "Add to Home screen"
@@ -406,7 +406,7 @@ Edit the files directly. There is no build step.
 - **Spoken text in the other five languages** is in `data-say-bn`, `data-say-mr`, `data-say-ta`, `data-say-te` and `data-say-kn` attributes on the boxes, and in the `*-data.js` files.
 - **The header, menu, footer and bottom bar** are repeated in every page. Change all eleven pages the same way.
 - **New or changed spoken sentences** have no recording yet, because each clip matches its exact words. The phone's own voice reads them instead until they are recorded.
-- **After changing `style.css` or a `.js` file**, raise the `?v=39` number on the links in every page, so phones load the new file instead of an old copy.
+- **After changing `style.css` or a `.js` file**, raise the `?v=40` number on the links in every page, so phones load the new file instead of an old copy.
 
 ### Checking after a change
 

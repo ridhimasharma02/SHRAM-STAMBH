@@ -166,6 +166,9 @@
   /* said when the daily wage is still empty */
   var NEED_RATE = { hi: 'पहले ऊपर अपनी रोज़ की मज़दूरी लिखें।', en: 'First, write your daily wage at the top.' };
   window.SS_PHRASES.push(NEED_RATE);
+  /* said when there is nothing to send yet for this month */
+  var NEED_DAYS = { hi: 'पहले कैलेंडर में वे दिन दबाएँ, जिन दिन आपने काम किया।', en: 'First, tap the days you worked on the calendar.' };
+  window.SS_PHRASES.push(NEED_DAYS);
 
   var sayBtn = el('say-sum');
   if (sayBtn) {
@@ -230,6 +233,15 @@
         if (window.ssSpeak) window.ssSpeak(NEED_RATE, sendBtn);
         if (window.ssToast) window.ssToast(NEED_RATE.en + ' · ' + NEED_RATE.hi);
         rateIn.focus();
+        return;
+      }
+      var s = sums();
+      if (!s.days && !s.paid) {
+        /* an empty record is no proof: ask for the days first */
+        if (window.ssSpeak) window.ssSpeak(NEED_DAYS, sendBtn);
+        if (window.ssToast) window.ssToast(NEED_DAYS.en + ' · ' + NEED_DAYS.hi);
+        var firstDay = el('cal').querySelector('button:not([disabled])');
+        if (firstDay) firstDay.focus();
         return;
       }
       /* a link click (not window.open) so WhatsApp opens reliably on phones */
