@@ -1,0 +1,33 @@
+name: Something doesn't work
+description: A button, the voice, the login, the diary or a page isn't working.
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: diary.html
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Phone or computer, and browser
+      placeholder: Redmi 9A, Chrome
+    validations:
+      required: true
+  - type: dropdown
+    id: lang
+    attributes:
+      label: Voice language chosen
+      options: [Hindi, English, Bengali, Marathi, Tamil, Telugu, Kannada, "Not sure"]
+  - type: markdown
+    attributes:
+      value: Please don't post anyone's real name, mobile number or diary details.
