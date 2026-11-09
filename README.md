@@ -24,6 +24,12 @@
   - [Asking a question](#asking-a-question)
   - [Saving the diary and notebook](#saving-the-diary-and-notebook)
   - [How the scripts talk to each other](#how-the-scripts-talk-to-each-other)
+- [Reference](#reference)
+  - [Project structure](#project-structure)
+  - [The stylesheet](#the-stylesheet)
+  - [The data files](#the-data-files)
+  - [What is saved in the browser](#what-is-saved-in-the-browser)
+  - [Browser support](#browser-support)
 - [Changing the site](#changing-the-site)
 - [Putting it online](#putting-it-online)
 - [Accessibility](#accessibility)
@@ -276,6 +282,96 @@ The scripts don't import each other. They share a few named objects on `window` 
 | login.js | `ssLogin` | The login screen |
 | speak.js | `ss-lang` event | Fired when the language changes. The Ask page, the login screen and the header relabel themselves |
 | account.js | `ss-account` event | Fired when someone logs in or out. Nothing listens for it yet; it is there for future features |
+
+## Reference
+
+### Project structure
+
+```
+SHRAM-STAMBH/
+├── index.html          Home page: listen button, language buttons, picture tiles
+├── rights.html         Your rights: every worker, then construction, domestic, factory, migrant
+├── pictures.html       Rights in pictures: twelve picture cards with sound
+├── wages.html          Not paid?: six steps, message template, printable work log
+├── diary.html          Work diary: tap days worked, add payments, see what is owed
+├── before-job.html     Questions to ask, job card, warning signs, contractor notebook
+├── show.html           Show this screen: full-screen messages for an officer or doctor
+├── ask.html            Ask a question by voice, picture buttons or typing
+├── help.html           Helplines, which office for which problem, what to say
+├── login.html          Picture login
+├── 404.html            Page not found, with home link and 15100 call button
+│
+├── style.css           All styling, in 17 numbered sections (about 1,300 lines)
+├── speak.js            The voice: finds text, plays recordings, falls back to phone voice
+├── ask.js              Voice questions: listens, scores against 16 topics, answers
+├── account.js          Accounts on this phone, idle logout, lockout, header name
+├── login.js            The login screen, one step at a time
+├── diary.js            The work diary
+├── site.js             Print buttons and the contractor notebook
+│
+├── audio-manifest.js   List of the 592 recorded clips
+├── lang-data.js        Seven languages and shared spoken lines
+├── ask-data.js         Ask topics, keywords, word groups and answers
+├── account-data.js     Login text, 8 profile pictures, 9 secret pictures
+│
+├── audio/              592 voice clips (.m4a), one folder per language: hi en bn mr ta te kn
+├── favicon.svg         The ochre श्रम tile
+└── docs/screenshots/   Images used in this README
+```
+
+### The stylesheet
+
+[style.css](style.css) starts with a table of contents. Each rule appears once, with its final value, and everything that changes on smaller screens is together in section 16.
+
+| # | Section | # | Section |
+|---|---|---|---|
+| 1 | Colours and fonts (design tokens) | 10 | Rights in pictures, Show this screen |
+| 2 | Base: page, text, links, headings | 11 | Work diary and buttons |
+| 3 | Show / hide helpers | 12 | Contractor notebook |
+| 4 | Header: logo, voice picker, account button, menu | 13 | Language buttons and the Ask page |
+| 5 | Page layout: main column and sidebar | 14 | Login page |
+| 6 | Common boxes: panels, headings, notes, tables | 15 | Sidebar, bottom bar, footer, small messages |
+| 7 | Voice: speaker buttons and listen boxes | 16 | Screen sizes, wide screens first, then tablets and phones |
+| 8 | Home page: picture tiles and ask banner | 17 | Printing, reduced motion, JavaScript turned off |
+| 9 | Call buttons and help boxes | | |
+
+**Colours.** The page is a calm grey. Each topic has one fixed colour, used for its home-page tile and the coloured left edge of its boxes, so a person who can't read can find things by colour: ochre-yellow `t-wages`, blue `t-rights`, green `t-job` and red `t-help`. The colours are set once as tokens in section 1.
+
+**Screen sizes.** Above 1100px wide there is a sticky sidebar with "Listen to this page", the language buttons, the 15100 and 112 call buttons, and Ask. Below that the sidebar folds away and the four-button bottom bar does the same job. The layout was checked at widths from 320px to 1920px.
+
+### The data files
+
+Each one sets a single object on `window`. They are plain JavaScript with one entry per line, so they can be edited by hand.
+
+| File | Object | What is in it |
+|---|---|---|
+| [audio-manifest.js](audio-manifest.js) | `SS_AUDIO` | `"language:fingerprint": 1` for every recorded clip |
+| [lang-data.js](lang-data.js) | `SS_LANG` | `langs` (code, name, speech-recognition code), and lines spoken on every page, such as the language confirmation |
+| [ask-data.js](ask-data.js) | `SS_ASK` | `topics` (keywords, weak words, word combinations, answer in seven languages, call buttons, link), `concepts` (the word groups), `order` (picture buttons) and `matchOrder` (tie-breaking) |
+| [account-data.js](account-data.js) | `SS_ACCOUNT` | `text` (every login line in seven languages), `avatars` and `secrets` (the pictures as inline SVG) |
+
+### What is saved in the browser
+
+| Key | Where | What it holds |
+|---|---|---|
+| `ss-profiles` | localStorage | Every account on this phone: id, picture, name, mobile, salt, fingerprint of the secret code |
+| `ss-locks` | localStorage | Wrong-try counters for the one-minute lockout |
+| `ss-voice` | localStorage | The chosen language |
+| `ss-session` | sessionStorage | Which account is logged in. Gone when the browser closes |
+| `ss-last` | sessionStorage | Time of the last tap, for the 30-minute idle logout |
+| `shramik-diary-v1:<account>` | localStorage | That person's work diary |
+| `shramik-contractors-v1:<account>` | localStorage | That person's contractor notebook |
+
+Nothing else is stored, and none of it is sent anywhere.
+
+### Browser support
+
+| Feature | Chrome / Edge | Safari | Firefox |
+|---|---|---|---|
+| Pages, login, diary, notebook | ✓ | ✓ | ✓ |
+| Recorded voice | ✓ | ✓ | ✓ |
+| Phone's own voice (backup) | ✓ if the device has a voice for that language | ✓ if the device has a voice for that language | ✓ if the device has a voice for that language |
+| Asking by microphone | ✓ on HTTPS | ✓ on HTTPS | – picture buttons and typing instead |
 
 ## Changing the site
 
