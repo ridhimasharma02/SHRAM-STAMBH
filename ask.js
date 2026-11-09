@@ -24,7 +24,7 @@
   DATA.topics.forEach(function (t) { byId[t.id] = t; });
   var FALLBACK = { id: 'fallback', answer: DATA.ui.fallback, calls: ['15100'], link: 'help.html' };
 
-  /* phrases spoken by this page, so tools/make_audio.py records them */
+  /* phrases spoken by this page, so they can be recorded */
   window.SS_PHRASES = window.SS_PHRASES || [];
   ['noMic', 'micBlocked', 'noSpeech', 'network', 'howTo', 'fallback'].forEach(function (k) { window.SS_PHRASES.push(DATA.ui[k]); });
   DATA.topics.forEach(function (t) { window.SS_PHRASES.push(t.answer); });

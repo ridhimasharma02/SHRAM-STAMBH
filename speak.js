@@ -2,7 +2,7 @@
 
    How it speaks, in order of preference:
    1. Recorded audio. Every fixed piece of text on the site was recorded on a Mac
-      in seven languages (tools/make_audio.py). These are small .m4a files that
+      in seven languages (the audio/ folder). These are small .m4a files that
       play in any browser, so they do not depend on the phone having a voice.
    2. The phone's own text-to-speech, only for text that changes (the diary
       totals, notebook entries). A watchdog resets it if it gets stuck.
@@ -522,7 +522,7 @@
   window.ssToast = toast;
   window.SS_PHRASES = window.SS_PHRASES || [];
 
-  /* used by tools/collect.html when recording audio, and for testing */
+  /* lists every sentence a page can speak and where its recording is; useful for testing */
   window.ssDebug = {
     hash: hash,
     pieces: pieces,

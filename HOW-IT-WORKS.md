@@ -33,11 +33,11 @@ The site is plain HTML, CSS and a small amount of JavaScript. There is no server
 | [site.js](site.js) | Print buttons and the contractor notebook |
 | [account.js](account.js) | Accounts on this phone: create, check, lock out, log out, privacy gates |
 | [login.js](login.js) | The login screen's steps |
-| `audio/` | 440 recorded voice clips, one folder per language |
-| `audio-manifest.js`, `lang-data.js`, `ask-data.js`, `account-data.js` | Generated data files. Don't edit these by hand |
-| `tools/` | Python scripts that generate the pages and record the audio. Not uploaded to the web |
+| `audio/` | 592 recorded voice clips, one folder per language |
+| `audio-manifest.js` | The list of recorded clips, so the voice knows which sentences have a recording |
+| `lang-data.js`, `ask-data.js`, `account-data.js` | Text in seven languages: shared spoken lines, the Ask topics, and the login screen |
 
-The HTML pages are **generated**. To change page text, edit the scripts in `tools/` and rebuild (see section 14). Editing the `.html` files directly works, but the changes are lost on the next rebuild.
+Every file is written by hand and edited directly. There is no build step and nothing to install (see section 16).
 
 ---
 
@@ -51,36 +51,27 @@ Every file starts with a comment that says what it does and how it is laid out. 
 4. **[account.js](account.js)** holds accounts and the page lock. **[login.js](login.js)** is the login screen, one step at a time.
 5. **[diary.js](diary.js)** and **[site.js](site.js)** are the work diary and the contractor notebook.
 
-Names say what things are: `DATA` is the data a script reads from its generated `...-data.js` file, `state` is where the login screen is up to, and `textFor()` gets a line of text in the chosen language.
+Names say what things are: `DATA` is the data a script reads from its `...-data.js` file, `state` is where the login screen is up to, and `textFor()` gets a line of text in the chosen language.
 
 ---
 
-## 2. How the pages are built
+## 2. How the pages are laid out
 
 **What it does:** all ten pages share the same header, menu, bottom bar and footer, so they stay consistent.
 
-**How it works:** [build_common.py](tools/build_common.py) has one function, [`page()`](tools/build_common.py:137), that wraps any page body in the shared shell. It adds:
+**How it works:** every page is a complete HTML file with the same shell around its own content. Using [index.html](index.html) as the example, the shell is:
 
-- the `<head>`, with the Mukta font, the stylesheet and the scripts;
+- the `<head>`, with the Mukta font, the stylesheet and the scripts, and the page lock at the very top ([line 18](index.html:18));
 - the dark strip at the top, with the free legal help number and the voice language picker;
-- the header, with the logo (an ochre signboard tile with the word श्रम, "labour"), the seven-item menu ([`NAV`](tools/build_common.py:72)) and the login button;
-- the footer, with the disclaimer and the WhatsApp share link;
-- the fixed bottom bar, with four buttons.
+- the header ([line 60](index.html:60)), with the logo (an ochre signboard tile with the word श्रम, "labour"), the seven-item menu and the login button;
+- the footer ([line 160](index.html:160)), with the disclaimer and the WhatsApp share link;
+- the fixed bottom bar ([line 185](index.html:185)), with four buttons.
 
-Each page is then written by a small script:
+The shell is repeated in each page, so a change to the menu or footer has to be made in all eleven pages.
 
-| Script | Pages |
-|---|---|
-| [build_1.py](tools/build_1.py) | Home and rights |
-| [build_2.py](tools/build_2.py) | Not paid, before a job, help |
-| [build_3.py](tools/build_3.py) | Pictures, show this screen, diary |
-| [build_ask.py](tools/build_ask.py) | Ask page and the two language data files |
-| [build_login.py](tools/build_login.py) | Login page and its data file |
-| [build_404.py](tools/build_404.py) | The "page not found" page |
+All icons are hand-drawn SVG line drawings written straight into the HTML, so no image files need to load.
 
-All icons are hand-drawn SVG line drawings stored in [`ICONS`](tools/build_common.py:9). They are written straight into the HTML, so no image files need to load.
-
-**Cache busting:** [`VER`](tools/build_common.py:4) is added to every CSS and JS link, for example `speak.js?v=13`. Raising this number after a change makes phones download the new file instead of using an old cached copy.
+**Cache busting:** every CSS and JS link ends in a version number, for example `speak.js?v=36`. Raising this number in every page after a change makes phones download the new file instead of using an old cached copy.
 
 ---
 
@@ -182,19 +173,19 @@ All of this is in [speak.js](speak.js).
 - it speaks a confirmation in the new language, such as "ठीक है, अब हिंदी में सुनाया जाएगा";
 - it sends an `ss-lang` event, so the Ask page can relabel itself.
 
-**Seven languages:** Hindi, English, Bengali, Marathi, Tamil, Telugu, Kannada. They are listed in [`LANGS`](tools/i18n.py:10), along with the Mac voice used to record each one.
+**Seven languages:** Hindi, English, Bengali, Marathi, Tamil, Telugu, Kannada. They are listed under `langs` in [lang-data.js](lang-data.js).
 
 ---
 
 ## 6. How the audio is recorded
 
-**What it does:** produces the 440 `.m4a` clips in `audio/` (about 22 MB). A phone only downloads a clip when someone plays it.
+**What it does:** the 592 `.m4a` clips in `audio/` (about 22 MB). A phone only downloads a clip when someone plays it.
 
-**How it works.** There are three steps, all in `tools/`:
+**How it works.** Each clip is named after a short fingerprint (hash) of its exact words, such as `audio/hi/bfa5b5b0.m4a`, and [audio-manifest.js](audio-manifest.js) lists every one. When speak.js needs to say a sentence it works out the same fingerprint and plays that clip if it exists. A sentence with no clip, such as a changed one, is read by the phone's own voice instead.
 
-1. **Collect.** [collect.html](tools/collect.html) loads each page in a hidden frame and calls `ssDebug.collect()` in speak.js. That returns every exact sentence each page can speak, in every language, with its hash. Using the real page code guarantees the recordings match what the player will look for.
-2. **Save.** The list is sent to [collect_server.py](tools/collect_server.py), a tiny local server on port 8124, which writes it to `tools/collected.json`.
-3. **Record.** [make_audio.py](tools/make_audio.py) runs the Mac's `say` command with the right voice for each language:
+`ssDebug.collect()` in speak.js returns every exact sentence a page can speak, in every language, with its fingerprint. This is how to see which lines need a new recording.
+
+The clips were recorded with the Mac's `say` command, using these voices:
 
    | Language | Voice |
    |---|---|
@@ -206,7 +197,7 @@ All of this is in [speak.js](speak.js).
    | Kannada | Soumya |
    | Marathi | Lekha (the Hindi voice reading Marathi) |
 
-   `afconvert` then compresses each clip to small AAC audio, about 4 KB per second. The script runs six recordings at once, skips clips that already exist, deletes ones nothing uses any more, and rewrites `audio-manifest.js`.
+   `afconvert` then compressed each clip to small AAC audio, about 4 KB per second.
 
 ---
 
@@ -242,8 +233,8 @@ All of this is in [ask.js](ask.js).
 
    - **Strong keywords** score 2 points each, for example "ठेकेदार", "காயம்" or "PF".
    - **Weak words** score 1 point, for example "card" or "help".
-   - **Combos** score 3 points when words from two groups both appear. "Money word + negative word" means unpaid, as in "पैसा नहीं मिला". "When + money" means pay day. The word groups (`MONEY`, `NEG`, `WHEN` and so on) are in [`CONCEPTS`](tools/i18n.py:112) and mix all seven languages plus romanised Hindi.
-   - The highest score wins. Ties go to the more urgent topic, using [`MATCH_ORDER`](tools/i18n.py:426), so forced labour beats a general answer.
+   - **Combos** score 3 points when words from two groups both appear. "Money word + negative word" means unpaid, as in "पैसा नहीं मिला". "When + money" means pay day. The word groups (`MONEY`, `NEG`, `WHEN` and so on) are under `concepts` in [ask-data.js](ask-data.js) and mix all seven languages plus romanised Hindi.
+   - The highest score wins. Ties go to the more urgent topic, using `matchOrder` in [ask-data.js](ask-data.js), so forced labour beats a general answer.
    - Of the recogniser's three guesses, the one that matches best is used.
    - If nothing scores, the worker hears a "didn't understand, call 15100" answer.
 3. **Normalising.** [`norm()`](ask.js:39) makes matching forgiving. It lowercases, removes the Hindi and Bengali nukta dot (so ज़ = ज), treats chandrabindu and anusvara the same, and strips punctuation.
@@ -316,7 +307,7 @@ It covers the whole screen, including the bottom bar. "Close" links to `#cards`,
 
 **What it does:** twelve rights, each a big picture plus one short line, such as "Up to 8 hours a day", "Extra hours paid double" and "Children under 14 must not work". Blue pictures are what workers are owed. Red pictures are things nobody may do to them. Each has a speaker button. A big button at the top reads all twelve in a row.
 
-**How it works:** [build_3.py](tools/build_3.py) creates the cards. Each card's spoken text in Bengali, Marathi, Tamil, Telugu and Kannada comes from [`PICTURES`](tools/i18n.py:502) and is stored on the card as `data-say-bn` and similar. The "read all" button has `data-read="#pics"`, which tells speak.js to read the whole list.
+**How it works:** the cards are a list in [pictures.html](pictures.html:98). Each card's spoken text in Bengali, Marathi, Tamil, Telugu and Kannada is stored on the card as `data-say-bn` and similar. The "read all" button has `data-read="#pics"`, which tells speak.js to read the whole list.
 
 ---
 
@@ -351,7 +342,7 @@ If a detail is missing or wrong, the box turns red and the reason is shown and s
 
 ### How it works
 
-- **The lock on every page.** Every page except login has a tiny script at the very top of its `<head>`, called `GUARD` in [build_common.py](tools/build_common.py). It runs before anything else, checks for a logged-in account, and if there isn't one hides the page and jumps to `login.html?next=<this page>`. It runs again when the browser's Back button shows a saved copy of a page, so logging out and pressing Back doesn't reveal anything.
+- **The lock on every page.** Every page except login has a tiny script at the very top of its `<head>`, for example [index.html line 18](index.html:18). It runs before anything else, checks for a logged-in account, and if there isn't one hides the page and jumps to `login.html?next=<this page>`. It runs again when the browser's Back button shows a saved copy of a page, so logging out and pressing Back doesn't reveal anything.
 - **Storing accounts.** [account.js](account.js) saves accounts in `localStorage` under `ss-profiles`. Each one has an id, picture, name, mobile number, a random salt and a hash. The secret code itself is **never stored**. [`digest()`](account.js:83) makes a SHA-256 fingerprint of the salt plus the four picture ids, and [`verify()`](account.js:141) recomputes and compares it.
 - **Checking details.** [`cleanMobile()`](account.js:96) accepts only valid Indian mobile numbers. [`validName()`](account.js:103) needs at least two letters in any script, so "7" is refused but "मुरुगन" or "முருகன்" is fine. [`mobileTaken()`](account.js:104) blocks duplicates. [`create()`](account.js:110) refuses to save without them, even if the screen were skipped.
 - **Lockout.** Five wrong codes lock that account for one minute (`ss-locks`). During the lock the right code is refused too.
@@ -364,8 +355,7 @@ If a detail is missing or wrong, the box turns red and the reason is shown and s
   - name and mobile ([`startDetails()`](login.js:117)), with the say-your-name microphone;
   - the secret pictures ([`tapSecret()`](login.js:252), [`evaluate()`](login.js:270));
   - the logged-in view, with a Continue button back to the page the person wanted.
-- **Text.** All login text in seven languages is in [`LOGIN`](tools/i18n.py:553). The pictures are in [`AVATARS`](tools/i18n.py:738) and [`SECRETS`](tools/i18n.py:740). Every spoken line is recorded.
-- **Recording audio while logged out.** [collect.html](tools/collect.html) makes a temporary account while it gathers lines, then puts things back.
+- **Text.** All login text in seven languages, the profile pictures and the secret pictures are in [account-data.js](account-data.js) (`text`, `avatars` and `secrets`). Every spoken line is recorded.
 
 **How strong it is:** four pictures out of nine gives 6,561 codes, and the lockout makes guessing take many hours. The lock on every page and the code stop casual access by family or co-workers. They do not stop someone with the phone and technical skill, because a website with no server keeps its data in the browser. A server-backed login would be needed for that.
 
@@ -382,7 +372,7 @@ These are built in and were checked on every page:
 - **Printing.** Printouts drop the sidebar, header and buttons, so the work log and job card print cleanly.
 - **JavaScript turned off.** The login lock can't run without JavaScript, so the content is hidden and a message with the 15100 and 112 call buttons shows instead.
 - **Sharing.** Every page has title and description tags, so a link shared on WhatsApp shows a proper preview.
-- **Wrong addresses.** A mistyped address shows [404.html](404.html) instead of a bare error. Most web hosts use this file automatically, and `tools/serve.py` does too.
+- **Wrong addresses.** A mistyped address shows [404.html](404.html) instead of a bare error. Most web hosts use this file automatically.
 
 ---
 
@@ -397,40 +387,19 @@ These are built in and were checked on every page:
 
 ---
 
-## 16. Running and rebuilding
+## 16. Running and changing the site
 
-**View the site on this Mac:**
+**View the site:** double-click [index.html](index.html). It opens in the browser and works without a server, because nothing in the site talks to one.
 
-```bash
-cd "/Users/ridhimasharma/Desktop/HTML PROJECT"
-```
+The microphone on the Ask page is the exception: browsers only allow it on a web address, `https://` or `http://localhost`. To try it on a computer, open the folder with any local web server, such as the VS Code "Live Server" extension.
 
-```bash
-python3 tools/serve.py
-```
+**After changing page text:** edit the `.html` file and reload. The English and Hindi text is in the page. The other five languages are in `data-say-…` attributes and the `*-data.js` files. The header, menu, footer and bottom bar are repeated in every page, so change all eleven the same way.
 
-Then open `http://localhost:8123`.
+**After changing spoken text:** the old clip no longer matches, so the phone's own voice reads the new sentence. To record it, make a clip with the voice for that language (section 6), save it as `audio/<language>/<fingerprint>.m4a` and add `"<language>:<fingerprint>":1` to [audio-manifest.js](audio-manifest.js). `ssDebug.collect()` gives the fingerprint.
 
-[serve.py](tools/serve.py) is better than Python's built-in server for this site:
-- It tells the browser to re-check pages, scripts and styles every time, so you never see an old cached copy after a change.
-- It lets the voice clips cache for good, because their names change whenever their words change.
-- It fixes addresses pasted with punctuation stuck on the end, like `login.html,`.
+**After changing CSS or JS:** raise the `?v=36` number on the links in every page, so phones load the new files.
 
-**After changing page text** (in the `tools/build_*.py` files or `tools/i18n.py`):
-
-```bash
-cd tools && python3 build_1.py && python3 build_2.py && python3 build_3.py && python3 build_ask.py && python3 build_login.py && python3 build_404.py
-```
-
-**After changing spoken text**, re-record. The full steps are in [tools/README.md](tools/README.md):
-
-1. Log out and start the site and `tools/collect_server.py`.
-2. Open `http://localhost:8123/tools/collect.html`.
-3. Run `python3 tools/make_audio.py`.
-
-**After changing CSS or JS:** raise `VER` in [build_common.py](tools/build_common.py:4) and rebuild, so phones load the new files.
-
-**Publishing:** upload everything except the `tools/` and `docs/` folders to any static web host. HTTPS is needed for the microphone to work. Set the host to send `Cache-Control: no-cache` for `.html`, `.js` and `.css` files, and to cache `audio/` for a long time, the same as `serve.py` does.
+**Publishing:** upload everything except the `docs/` folder to any static web host. HTTPS is needed for the microphone to work. Set the host to send `Cache-Control: no-cache` for `.html`, `.js` and `.css` files, and to cache `audio/` for a long time, because a clip's name changes whenever its words change.
 
 ---
 

@@ -22,7 +22,7 @@
   var PERSONAL = ['shramik-diary-v1', 'shramik-contractors-v1'];
   var MAX_TRIES = 5, LOCK_MS = 60000;
 
-  /* every fixed sentence the login speaks, so tools/make_audio.py records it */
+  /* every fixed sentence the login speaks, so it can be recorded */
   window.SS_PHRASES = window.SS_PHRASES || [];
   ['whoAreYou', 'choosePic', 'detailsPrompt', 'nameNeeded', 'mobileNeeded', 'mobileTaken', 'micUnavailable', 'chooseSecret', 'repeatSecret', 'mismatch', 'created', 'movedGuest',
    'enterSecret', 'wrong', 'locked', 'welcome', 'loggedOut', 'forgotInfo', 'removed', 'needLogin', 'intro']
