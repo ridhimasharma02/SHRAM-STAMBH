@@ -118,8 +118,7 @@ SHRAM-STAMBH/
 ├── *-data.js           Text in seven languages, Ask topics, login pictures
 │
 ├── audio/              592 recorded voice clips, one folder per language
-├── docs/screenshots/   Images used in this README
-└── HOW-IT-WORKS.md     Full explanation of every feature and its code
+└── docs/screenshots/   Images used in this README
 ```
 
 ## How it works
@@ -128,8 +127,6 @@ SHRAM-STAMBH/
 - **Recorded voice.** Every fixed sentence on the site was recorded in advance with the Mac's built-in voices, so it plays on any phone, even one with no Hindi or Tamil voice installed. The phone's own voice is used only for text that changes, like diary totals.
 - **Voice questions without AI.** The browser turns speech into text. The site then scores the sentence against 16 topics using keywords in all seven languages, and plays the recorded answer.
 - **Picture login.** The four secret pictures are never stored, only a salted SHA-256 fingerprint of them. Five wrong tries lock the account for one minute, and it logs out by itself after 30 minutes unused.
-
-[HOW-IT-WORKS.md](HOW-IT-WORKS.md) explains every feature step by step, with links to the exact lines of code.
 
 ## Changing the site
 
