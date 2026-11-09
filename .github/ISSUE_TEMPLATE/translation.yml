@@ -1,0 +1,49 @@
+name: Translation or voice fix
+description: Text or speech in one of the seven languages is wrong, unclear or sounds bad.
+title: "Translation: "
+labels: ["translation"]
+body:
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - Hindi · हिंदी
+        - English
+        - Bengali · বাংলা
+        - Marathi · मराठी
+        - Tamil · தமிழ்
+        - Telugu · తెలుగు
+        - Kannada · ಕನ್ನಡ
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Written or spoken?
+      options:
+        - Written on the page
+        - Spoken by the voice
+        - Both
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: pictures.html
+    validations:
+      required: true
+  - type: textarea
+    id: now
+    attributes:
+      label: What it says now
+    validations:
+      required: true
+  - type: textarea
+    id: better
+    attributes:
+      label: Better wording
+      description: If you are a native speaker, write it as a worker would say it.
+    validations:
+      required: true
