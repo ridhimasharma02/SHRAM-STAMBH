@@ -7,6 +7,8 @@ What changed in each version of SHRAM STAMBH. Downloads are on the [releases pag
 ### Added
 - **CONTRIBUTING.md**, with the ground rules and the steps to record a new voice line on a Mac.
 - The "New issue" page links people with their own legal case to NALSA, and tells them to call 15100 instead of posting their details.
+- **docs/TRANSLATING.md**, a guide for native speakers checking the Bengali, Marathi, Tamil, Telugu and Kannada text, linked from the README and `CONTRIBUTING.md`.
+- `404.html` asks search engines not to list it, and `style.css` lists all nine screen-size breakpoints at the top of section 16.
 
 ### Fixed
 - **Printouts.** "Print this log" and "Print the job card" no longer appear on their own printouts, and neither do the listen box or the diary's buttons. The print rules were weaker than the screen rules that show those elements.
