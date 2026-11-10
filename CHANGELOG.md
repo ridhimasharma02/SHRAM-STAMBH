@@ -16,7 +16,7 @@ What changed in each version of SHRAM STAMBH. Downloads are on the [releases pag
 ### Changed
 - The README explains how to run the site on localhost, with a Mac command that serves the voice clips as audio.
 - Two new voice clips (594 in all). Cache number raised to 40.
-- The comments at the top of `speak.js`, `account.js`, `diary.js` and `site.js` describe the code as it is now. The README's test checklist covers printing and the diary's WhatsApp message.
+- The comments at the top of `speak.js`, `account.js`, `diary.js` and `site.js` describe the code as it is now. The test checklist (now in `CONTRIBUTING.md`) covers printing and the diary's WhatsApp message.
 
 ## 1.2 — 9 November 2026
 

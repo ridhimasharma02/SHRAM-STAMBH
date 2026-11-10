@@ -61,8 +61,22 @@ Each clip in `audio/` is named after a fingerprint of its exact words, so a chan
 
 If you can't record, leave the sentence unrecorded and say so in the commit message. The phone's voice will read it until someone with a Mac records it.
 
-## Before you commit
+## Checking after a change
 
-Go through the README's [checking after a change](README.md#checking-after-a-change) list. It takes a few minutes and covers the login, every page, the voice and the console.
+Run the site on localhost and go through this list. It takes a few minutes.
+
+1. Log out, then open any page. It should go straight to the login page.
+2. Make an account and log in. You should come back to the page you opened.
+3. Open every page from the menu. Nothing should be cut off, and there should be no sideways scrolling on a phone-sized window.
+4. Press a few speaker buttons in two or three languages. Each should speak once, not twice.
+5. Open the browser console (`F12`). There should be no red errors.
+6. To check that every spoken line still has a recording, run this in the console on each page. It should print `0`:
+
+   ```js
+   ssDebug.collect().filter(p => !ssDebug.audioUrl(p)).length
+   ```
+
+7. Open print preview (`Ctrl + P`, or `Cmd + P` on a Mac) on the wages page and the diary. Only the content should show: no menus, speaker buttons or print buttons.
+8. In the diary, mark a day and press **Send this month on WhatsApp**. The message should match the totals on screen.
 
 Keep each commit to one change, with a message that says what changed and why, in plain words.
