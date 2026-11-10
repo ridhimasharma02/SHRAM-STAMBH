@@ -1,4 +1,17 @@
-/* Work diary: tap days worked, add money received, see what is owed.
+/* SHRAM STAMBH - work diary: tap days worked, add money received, see what is owed.
+
+   Parts of this file, in order:
+     storage          load and save the diary
+     helpers          dates, rupees, element lookup
+     fields           daily wage and employer details
+     calendar         tap a day: full, then half, then cleared
+     totals           days, earned, received, still owed; "hear this month's total"
+     WhatsApp         send the month as a plain message, as written proof
+     money received   payments, each with a date
+     month controls   previous / next month, clear this month
+
+   Stored in localStorage as "shramik-diary-v1:<account id>":
+     { rate, emp: {name, phone, site}, days: {"YYYY-MM-DD": "full" | "half"}, pays: [{d, a, id}] }
    Everything stays in this browser's storage on the worker's own phone. */
 (function () {
   'use strict';

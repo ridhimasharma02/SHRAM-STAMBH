@@ -1,5 +1,9 @@
 /* SHRAM STAMBH - small helpers used on several pages:
-   print buttons and the contractor notebook. */
+   print buttons and the contractor notebook.
+
+   The notebook is stored in localStorage as "shramik-contractors-v1:<account id>",
+   newest first: [{id, name, phone, place, note, v: "good" | "late" | "bad", d}]
+   Each note can be called, sent to WhatsApp as a warning, or heard aloud. */
 (function () {
   'use strict';
 

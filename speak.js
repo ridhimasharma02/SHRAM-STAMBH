@@ -5,7 +5,13 @@
       in seven languages (the audio/ folder). These are small .m4a files that
       play in any browser, so they do not depend on the phone having a voice.
    2. The phone's own text-to-speech, only for text that changes (the diary
-      totals, notebook entries). A watchdog resets it if it gets stuck.
+      totals, notebook entries), or a line that has no recording yet, or when
+      a clip fails or takes more than 12 seconds to start. A watchdog resets
+      it if it gets stuck.
+
+   A clip's file name is a fingerprint of its exact words (see hash() and
+   audioUrl()), so editing a sentence by even one letter means it needs a
+   new recording. CONTRIBUTING.md has the steps.
 
    Nothing the user does here is sent anywhere. */
 (function () {

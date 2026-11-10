@@ -7,11 +7,14 @@
    How it is stored (localStorage):
      ss-profiles  [{id, avatar, name, mobile, salt, hash, created}]
                   name and a 10-digit mobile number are required to make an account
-                  hash = SHA-256(salt + ":" + the four secret picture ids)
+                  hash = SHA-256(salt + ":" + the four secret picture ids, comma-separated)
+                  (older browsers without crypto.subtle get a weaker "fnv:" fingerprint)
                   The secret pictures themselves are never stored.
      ss-locks     wrong-try counters, for the one-minute lockout
-   The logged-in account is kept in sessionStorage, so closing the browser
-   logs the person out. It also logs out by itself after 30 minutes unused. */
+   The logged-in account is kept in sessionStorage (ss-session, with the time of
+   the last tap in ss-last), so closing the browser logs the person out. It also
+   logs out by itself after 30 minutes unused.
+   Each person's diary and notebook are saved under "<name>:<account id>" (see key()). */
 (function () {
   'use strict';
 
