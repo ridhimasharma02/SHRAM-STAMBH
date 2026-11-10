@@ -1127,6 +1127,18 @@ footer.site .foot-small { color: #3f4245; }
    Wide screens (1101px and up): sidebar on, bottom bar off.
    Tablets (681-1100px): one column, menu in two rows of four.
    Phones (680px and below): smaller spacing, two-column menu.
+
+   Every breakpoint below, widest first:
+     1300px and up   four pictures and four questions per row
+     1101px and up   sidebar on; bottom bar and narrow-only boxes hidden
+     1100px and down one column, no sidebar
+     681-1100px      menu as two rows of four
+     820px and down  two tiles and two pictures per row, three questions
+     680px and down  phone sizes for text, spacing and the menu
+     440px and down  header controls move to their own row
+     420px and down  calendar days shrink instead of overflowing
+     380px and down  the smallest phones: smaller site name and logo
+   Keep new rules in this order, so a reader can find where a size changes.
    --------------------------------------------------------------------- */
 
 /* very wide: four pictures and four questions per row */
