@@ -188,7 +188,7 @@ Upload everything except the `docs/` and `.github/` folders to any static web ho
 
 - **Use HTTPS.** The microphone and "Add to Home screen" need it.
 - **Caching.** Pages, scripts and styles should be re-checked on every visit, while `audio/` can be cached for a long time. Netlify and Cloudflare Pages read [`_headers`](_headers), which sets this up. GitHub Pages can't set headers, but [`.nojekyll`](.nojekyll) makes it serve the files as they are.
-- **Wrong addresses** show `404.html` on most hosts.
+- **Wrong addresses** show `404.html` on most hosts. Its links start at the site's root (`/style.css`), because it can be shown at any address, so host the site at the top of a domain. On GitHub Pages that means a custom domain: at `username.github.io/SHRAM-STAMBH/` every page works, but the not-found page loses its styles.
 
 | Feature | Chrome / Edge | Safari | Firefox |
 |---|---|---|---|
