@@ -1,5 +1,2 @@
 # Mac files
 .DS_Store
-
-# local editor settings (not part of the site)
-.claude/
