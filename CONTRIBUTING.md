@@ -18,21 +18,6 @@ To report a problem instead of fixing it, use the [issue forms](https://github.c
 - The header, menu, footer and bottom bar are repeated in all eleven pages. Change all of them the same way.
 - After changing `style.css` or any `.js` file, raise the `?v=` number on every link in every page, so phones don't keep an old copy.
 
-## Changing a helpline number
-
-A number appears in more places than it looks, so find every copy first:
-
-```bash
-git grep -n -w 15100
-```
-
-- **15100 and 112** are on every page: the bottom bar, the sidebar and the box shown when JavaScript is off, each as a `tel:` link, and 15100 again in the footer note.
-- **Other numbers**, such as 14434, 1098 and 181, are on the help, rights and before-a-job pages and in the Ask answers in `ask-data.js`, including each topic's `calls` list. 15100 and 112 are also in the login text in `account-data.js`.
-- **`KNOWN_NUMBERS` in `speak.js`** lists the numbers the voice reads digit by digit ("1 5 1 0 0"), so a new helpline number needs adding there.
-- **Every sentence that contains the number now needs a new recording**, because its words changed. Use the steps below.
-
-Put the official source for the new number in the commit message.
-
 ## Recording the voice for a new or changed sentence
 
 Each clip in `audio/` is named after a fingerprint of its exact words, so a changed sentence has no recording until you make one. Until then the phone's own voice reads it, which is silent on many phones. Recording needs a Mac.
