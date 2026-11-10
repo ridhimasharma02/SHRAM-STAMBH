@@ -6,7 +6,19 @@
    3. The text is matched against 16 common worker problems using keywords in
       seven languages, and the answer is shown and spoken from a recording.
    If the microphone is not available, the same answers come from tapping a
-   picture question or typing. */
+   picture question or typing.
+
+   How a question is scored (see norm(), score() and match()):
+     - the text is lower-cased, punctuation removed, and nukta dots, zero-width
+       joiners and chandrabindu evened out, so spelling differences still match
+     - each strong keyword (topic.kw) found adds 2, each weak one (topic.weak) adds 1
+     - each combo whose word groups all appear (DATA.concepts, such as MONEY + NEG)
+       adds 3
+     - topics are tried in DATA.matchOrder and only a higher score replaces the
+       best so far, so on a tie the more urgent topic, listed first, wins
+     - the recogniser gives up to 3 guesses; the best-scoring one is used, and a
+       score of 0 gives the "call 15100" answer
+   The words themselves are in ask-data.js. */
 (function () {
   'use strict';
 
