@@ -7,6 +7,8 @@ What changed in each version of SHRAM STAMBH. Downloads are on the [releases pag
 ### Added
 - **CONTRIBUTING.md**, with the ground rules and the steps to record a new voice line on a Mac.
 - The "New issue" page links people with their own legal case to NALSA, and tells them to call 15100 instead of posting their details.
+- A **pull request template** with the checks that matter for this site.
+- `CONTRIBUTING.md` explains how to **change a helpline number** everywhere it appears, and `ask.js` explains how a spoken question is scored.
 
 ### Fixed
 - **Printouts.** "Print this log" and "Print the job card" no longer appear on their own printouts, and neither do the listen box or the diary's buttons. The print rules were weaker than the screen rules that show those elements.
@@ -14,7 +16,7 @@ What changed in each version of SHRAM STAMBH. Downloads are on the [releases pag
 - **Footer share link** opens WhatsApp in a new tab instead of leaving the site.
 
 ### Changed
-- The README explains how to run the site on localhost, with a Mac command that serves the voice clips as audio.
+- The README explains how to run the site on localhost, with a Mac command that serves the voice clips as audio, and that `404.html` needs the site at the top of a domain.
 - Two new voice clips (594 in all). Cache number raised to 40.
 - The comments at the top of `speak.js`, `account.js`, `diary.js` and `site.js` describe the code as it is now. The test checklist (now in `CONTRIBUTING.md`) covers printing and the diary's WhatsApp message.
 
