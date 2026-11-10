@@ -4,6 +4,10 @@ What changed in each version of SHRAM STAMBH. Downloads are on the [releases pag
 
 ## Not released yet
 
+### Added
+- **CONTRIBUTING.md**, with the ground rules and the steps to record a new voice line on a Mac.
+- The "New issue" page links people with their own legal case to NALSA, and tells them to call 15100 instead of posting their details.
+
 ### Fixed
 - **Printouts.** "Print this log" and "Print the job card" no longer appear on their own printouts, and neither do the listen box or the diary's buttons. The print rules were weaker than the screen rules that show those elements.
 - **Diary on WhatsApp** no longer sends an empty month. With no days marked and nothing received, it asks (in recorded Hindi and English) for the days first.
@@ -12,6 +16,7 @@ What changed in each version of SHRAM STAMBH. Downloads are on the [releases pag
 ### Changed
 - The README explains how to run the site on localhost, with a Mac command that serves the voice clips as audio.
 - Two new voice clips (594 in all). Cache number raised to 40.
+- The comments at the top of `speak.js`, `account.js`, `diary.js` and `site.js` describe the code as it is now. The README's test checklist covers printing and the diary's WhatsApp message.
 
 ## 1.2 — 9 November 2026
 
