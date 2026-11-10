@@ -14,7 +14,7 @@ To report a problem instead of fixing it, use the [issue forms](https://github.c
 ## Changing text on a page
 
 - Each page has English and Hindi side by side. The Hindi is in `<span class="hi" lang="hi">…</span>` right after the English, and the voice uses the `lang` attribute to pick the right part.
-- Bengali, Marathi, Tamil, Telugu and Kannada are spoken from `data-say-bn`, `data-say-mr`, `data-say-ta`, `data-say-te` and `data-say-kn` attributes, and from the `*-data.js` files.
+- Bengali, Marathi, Tamil, Telugu and Kannada are spoken from `data-say-bn`, `data-say-mr`, `data-say-ta`, `data-say-te` and `data-say-kn` attributes, and from the `*-data.js` files. [docs/TRANSLATING.md](docs/TRANSLATING.md) maps exactly where, for anyone checking a language.
 - The header, menu, footer and bottom bar are repeated in all eleven pages. Change all of them the same way.
 - After changing `style.css` or any `.js` file, raise the `?v=` number on every link in every page, so phones don't keep an old copy.
 

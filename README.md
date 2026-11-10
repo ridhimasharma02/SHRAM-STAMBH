@@ -207,7 +207,7 @@ Upload everything except the `docs/` and `.github/` folders to any static web ho
 - **Changing text uses the phone's voice,** such as diary totals and notebook entries, which is silent on phones with no Hindi voice installed.
 - **Marathi is read by the Hindi voice,** because macOS has no Marathi voice.
 
-**Before using it with real workers,** have native speakers check the Bengali, Marathi, Tamil, Telugu and Kannada text, check the helpline numbers and legal facts against current government sources (minimum wages change often and differ by state), and test the microphone on real phones over HTTPS.
+**Before using it with real workers,** have native speakers check the Bengali, Marathi, Tamil, Telugu and Kannada text ([docs/TRANSLATING.md](docs/TRANSLATING.md) explains how), check the helpline numbers and legal facts against current government sources (minimum wages change often and differ by state), and test the microphone on real phones over HTTPS.
 
 ---
 
