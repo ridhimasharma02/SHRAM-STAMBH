@@ -341,6 +341,7 @@ SHRAM-STAMBH/
 ├── .nojekyll           Tells GitHub Pages to serve the files without processing them
 ├── .github/            Issue forms: wrong facts, translations, bugs
 ├── CHANGELOG.md        What changed in each version
+├── CONTRIBUTING.md     Ground rules, editing text, recording new voice lines
 └── docs/screenshots/   Images used in this README
 ```
 
@@ -405,7 +406,7 @@ Edit the files directly. There is no build step.
 - **Page text** (English and Hindi) is in each `.html` file.
 - **Spoken text in the other five languages** is in `data-say-bn`, `data-say-mr`, `data-say-ta`, `data-say-te` and `data-say-kn` attributes on the boxes, and in the `*-data.js` files.
 - **The header, menu, footer and bottom bar** are repeated in every page. Change all eleven pages the same way.
-- **New or changed spoken sentences** have no recording yet, because each clip matches its exact words. The phone's own voice reads them instead until they are recorded.
+- **New or changed spoken sentences** have no recording yet, because each clip matches its exact words. The phone's own voice reads them instead until they are recorded. [CONTRIBUTING.md](CONTRIBUTING.md#recording-the-voice-for-a-new-or-changed-sentence) has the steps to record them on a Mac.
 - **After changing `style.css` or a `.js` file**, raise the `?v=40` number on the links in every page, so phones load the new file instead of an old copy.
 
 ### Checking after a change
@@ -420,6 +421,9 @@ Edit the files directly. There is no build step.
    ```js
    ssDebug.collect().filter(p => !ssDebug.audioUrl(p)).length
    ```
+
+7. Open print preview (`Ctrl + P`, or `Cmd + P` on a Mac) on the wages page and the diary. Only the content should show: no menus, speaker buttons or print buttons.
+8. In the diary, mark a day and press **Send this month on WhatsApp**. The message should match the totals on screen.
 
 ## Putting it online
 
@@ -467,6 +471,6 @@ Upload everything except the `docs/` and `.github/` folders to any static web ho
 
 *This site gives general information, not legal advice. For your own case, call free legal aid on **15100** or visit your district labour office.*
 
-What changed in each version is in [CHANGELOG.md](CHANGELOG.md). To report a wrong fact, a translation problem or a bug, [open an issue](https://github.com/ridhimasharma02/SHRAM-STAMBH/issues/new/choose).
+What changed in each version is in [CHANGELOG.md](CHANGELOG.md). To help, see [CONTRIBUTING.md](CONTRIBUTING.md). To report a wrong fact, a translation problem or a bug, [open an issue](https://github.com/ridhimasharma02/SHRAM-STAMBH/issues/new/choose).
 
 No licence has been chosen yet, so by default all rights are reserved by the author.
