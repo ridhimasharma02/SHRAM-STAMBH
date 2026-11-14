@@ -21,7 +21,11 @@
   var state;
   var lockTimer = null;
 
-  /* where to go after logging in: only one of our own pages */
+  /* where to go after logging in: only one of our own pages.
+     The page lock sends people here as login.html?next=diary.html. Only a bare
+     page name, with an optional #section, is accepted, so a link someone shares
+     such as ?next=https://… , //other-site or javascript:… can't send a worker
+     to another site after they log in. Anything else goes to the home page. */
   var next = (new URLSearchParams(location.search).get('next') || '');
   if (!/^[a-z-]+\.html(#[a-z-]+)?$/.test(next) || next === 'login.html') next = '';
 
