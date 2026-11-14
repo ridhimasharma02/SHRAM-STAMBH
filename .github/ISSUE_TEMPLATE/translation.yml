@@ -3,6 +3,9 @@ description: Text or speech in one of the seven languages is wrong, unclear or s
 title: "Translation: "
 labels: ["translation"]
 body:
+  - type: markdown
+    attributes:
+      value: Thank you for checking. [docs/TRANSLATING.md](https://github.com/ridhimasharma02/SHRAM-STAMBH/blob/main/docs/TRANSLATING.md) explains what to look for and where each language's text is. Everyday spoken wording is best, because most lines are heard, not read.
   - type: dropdown
     id: language
     attributes:
