@@ -18,6 +18,16 @@ To report a problem instead of fixing it, use the [issue forms](https://github.c
 - The header, menu, footer and bottom bar are repeated in all eleven pages. Change all of them the same way.
 - After changing `style.css` or any `.js` file, raise the `?v=` number on every link in every page, so phones don't keep an old copy.
 
+## Adding a new page
+
+There is no template engine, so a new page starts as a copy of an existing one. Copy the page closest to what you need (`help.html` is a good plain example), rename it, then:
+
+1. **Keep the `<head>` as it is,** apart from the `<title>`, `description` and `og:` lines. In particular keep the page-lock script at the top and the `?v=` numbers on every link, which must match the other pages.
+2. **Set the topic colour** on `<body>`: `t-wages` (money), `t-rights`, `t-job` or `t-help`.
+3. **Replace only what is inside `<div class="content">`.** Use `<div class="panel">` boxes with English and Hindi side by side, so each box gets a speaker button and can be read aloud.
+4. **Link to the new page** from the footer's list of pages in all eleven existing pages, and from the main menu if it is a main section. Mark the menu item `aria-current="page"` on the new page itself.
+5. **Record its spoken lines** (below), then go through the checks at the end of this guide, including print preview and a phone-sized window.
+
 ## Recording the voice for a new or changed sentence
 
 Each clip in `audio/` is named after a fingerprint of its exact words, so a changed sentence has no recording until you make one. Until then the phone's own voice reads it, which is silent on many phones. Recording needs a Mac.
