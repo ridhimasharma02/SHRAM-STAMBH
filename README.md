@@ -4,13 +4,15 @@
 
 *Shram Stambh* means "pillar of labour".
 
+**Live site: [shramstambh.vercel.app](https://shramstambh.vercel.app)**
+
 ![SHRAM STAMBH home page on a computer](docs/screenshots/home.jpg)
 
 ## Contents
 
 - [The problem](#the-problem)
 - [What the site does](#what-the-site-does)
-- [Run it on your computer](#run-it-on-your-computer)
+- [Try it](#try-it)
 - [How it works](#how-it-works)
 - [Project structure](#project-structure)
 - [Putting it online](#putting-it-online)
@@ -57,20 +59,11 @@ The site is built for workers who may never have learnt to read, for the NGO sta
 
 **Languages.** Every page is written in English and Hindi, and both are spoken everywhere. Bengali, Marathi, Tamil, Telugu and Kannada are spoken on the home page, Rights in pictures, Ask and the login. Elsewhere the voice says, in that language, that the part is only in Hindi, then reads the Hindi.
 
-## Run it on your computer
+## Try it
 
-There is nothing to install and nothing to build. **Double-click `index.html`** to open it in Chrome, Edge or Safari, then make an account with any name and a 10-digit mobile number starting with 6–9. The account is saved only in that browser.
+Open **[shramstambh.vercel.app](https://shramstambh.vercel.app)** in Chrome, Edge or Safari, on a phone or a computer. Make an account with any name and a 10-digit mobile number starting with 6–9; it is saved only in that browser. Everything works there, including asking questions by microphone.
 
-Everything works this way except the microphone, which browsers only allow on `https://` or `http://localhost`. To run it on localhost:
-
-- **On a Mac, with nothing to install,** open Terminal in the project folder and run this, then open **http://localhost:8123**. Press `Ctrl + C` to stop it.
-
-  ```bash
-  ruby -rwebrick -e 'm = WEBrick::HTTPUtils::DefaultMimeTypes.merge("m4a" => "audio/mp4"); s = WEBrick::HTTPServer.new(Port: 8123, DocumentRoot: ".", MimeTypes: m); trap("INT") { s.shutdown }; s.start'
-  ```
-
-  It uses the Ruby that comes with macOS. The `m4a` part makes it send the voice clips as audio, which Safari needs.
-- **On any computer with VS Code,** install the "Live Server" extension, right-click `index.html` and choose **Open with Live Server**. It opens at **http://localhost:5500**.
+Without internet, you can also download the project and **double-click `index.html`**. Everything works that way except the microphone, which browsers only allow on secure addresses.
 
 ## How it works
 

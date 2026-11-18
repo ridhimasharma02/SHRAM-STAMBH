@@ -11,6 +11,19 @@ Thank you for helping. This site is used by people who may not be able to read, 
 
 To report a problem instead of fixing it, use the [issue forms](https://github.com/ridhimasharma02/SHRAM-STAMBH/issues/new/choose). If you are a worker who needs help now, call free legal aid on **15100**.
 
+## Running it on your computer
+
+To test a change before it goes live, run the site on localhost, which browsers treat as secure, so the microphone works too:
+
+- **On a Mac, with nothing to install,** open Terminal in the project folder and run this, then open **http://localhost:8123**. Press `Ctrl + C` to stop it.
+
+  ```bash
+  ruby -rwebrick -e 'm = WEBrick::HTTPUtils::DefaultMimeTypes.merge("m4a" => "audio/mp4"); s = WEBrick::HTTPServer.new(Port: 8123, DocumentRoot: ".", MimeTypes: m); trap("INT") { s.shutdown }; s.start'
+  ```
+
+  It uses the Ruby that comes with macOS. The `m4a` part makes it send the voice clips as audio, which Safari needs.
+- **On any computer with VS Code,** install the "Live Server" extension, right-click `index.html` and choose **Open with Live Server**. It opens at **http://localhost:5500**.
+
 ## Changing text on a page
 
 - Each page has English and Hindi side by side. The Hindi is in `<span class="hi" lang="hi">…</span>` right after the English, and the voice uses the `lang` attribute to pick the right part.
@@ -32,7 +45,7 @@ There is no template engine, so a new page starts as a copy of an existing one. 
 
 Each clip in `audio/` is named after a fingerprint of its exact words, so a changed sentence has no recording until you make one. Until then the phone's own voice reads it, which is silent on many phones. Recording needs a Mac.
 
-1. **Run the site on localhost** (see the README), log in, and open the page you changed.
+1. **Run the site on localhost** (see [Running it on your computer](#running-it-on-your-computer)), log in, and open the page you changed.
 2. **List the lines without a recording.** In the browser console:
 
    ```js
@@ -73,7 +86,7 @@ If you can't record, leave the sentence unrecorded and say so in the commit mess
 
 ## Checking after a change
 
-Run the site on localhost and go through this list. It takes a few minutes.
+Run the site on localhost ([how](#running-it-on-your-computer)) and go through this list. It takes a few minutes.
 
 1. Log out, then open any page. It should go straight to the login page.
 2. Make an account and log in. You should come back to the page you opened.
