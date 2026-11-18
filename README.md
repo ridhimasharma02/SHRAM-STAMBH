@@ -184,10 +184,10 @@ Edit the files directly; there is no build step. [CONTRIBUTING.md](CONTRIBUTING.
 
 ## Putting it online
 
-Upload everything except the `docs/` and `.github/` folders to any static web host, such as GitHub Pages, Netlify or Cloudflare Pages.
+Upload everything except the `docs/` and `.github/` folders to any static web host, such as Vercel, GitHub Pages, Netlify or Cloudflare Pages. On Vercel, import the GitHub repository with the framework set to "Other" and no build command; it then redeploys on every push.
 
 - **Use HTTPS.** The microphone and "Add to Home screen" need it.
-- **Caching.** Pages, scripts and styles should be re-checked on every visit, while `audio/` can be cached for a long time. Netlify and Cloudflare Pages read [`_headers`](_headers), which sets this up. GitHub Pages can't set headers, but [`.nojekyll`](.nojekyll) makes it serve the files as they are.
+- **Caching.** Pages, scripts and styles should be re-checked on every visit, while `audio/` can be cached for a long time. Netlify and Cloudflare Pages read [`_headers`](_headers), which sets this up. Vercel reads [`vercel.json`](vercel.json), which does the same. GitHub Pages can't set headers, but [`.nojekyll`](.nojekyll) makes it serve the files as they are.
 - **Wrong addresses** show `404.html` on most hosts.
 
 | Feature | Chrome / Edge | Safari | Firefox |

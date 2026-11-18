@@ -1,0 +1,9 @@
+# not part of the website: documentation, GitHub forms, and settings for other hosts
+docs/
+.github/
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+_headers
+.nojekyll
+.editorconfig
